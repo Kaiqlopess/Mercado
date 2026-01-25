@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\algla\\source\\repos\\Mercado\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|solutionrelative:mercado\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.domain\\models\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|solutionrelative:mercado.domain\\models\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.domain\\interfaces\\repositorio\\irepositoriocategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|solutionrelative:mercado.domain\\interfaces\\repositorio\\irepositoriocategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,10 +43,6 @@
       "RelativeMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|solutionrelative:mercado.domain\\interfaces\\repositorio\\irepositoriosetor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.domain\\models\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|solutionrelative:mercado.domain\\models\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.application\\dtos\\criarprodutodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|solutionrelative:mercado.application\\dtos\\criarprodutodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -54,11 +58,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Program.cs",
               "RelativeDocumentMoniker": "Mercado\\Program.cs",
@@ -71,7 +75,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Mercado\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Mercado\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-24T15:10:50.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "CriarSetorDto.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Dtos\\CriarSetorDto.cs",
               "RelativeDocumentMoniker": "Mercado.Application\\Dtos\\CriarSetorDto.cs",
@@ -79,12 +96,11 @@
               "RelativeToolTip": "Mercado.Application\\Dtos\\CriarSetorDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-24T14:12:58.526Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-24T14:12:58.526Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "CriarCategoriaDto.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Dtos\\CriarCategoriaDto.cs",
               "RelativeDocumentMoniker": "Mercado.Application\\Dtos\\CriarCategoriaDto.cs",
@@ -92,12 +108,11 @@
               "RelativeToolTip": "Mercado.Application\\Dtos\\CriarCategoriaDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-24T14:12:27.555Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-24T14:12:27.555Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "CriarProdutoService.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\UseCase\\CriarProdutoService.cs",
               "RelativeDocumentMoniker": "Mercado.Application\\UseCase\\CriarProdutoService.cs",
@@ -105,12 +120,11 @@
               "RelativeToolTip": "Mercado.Application\\UseCase\\CriarProdutoService.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAuwBoAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-24T13:22:39.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-24T13:22:39.46Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "IRepositorioCategoria.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Interfaces\\Repositorio\\IRepositorioCategoria.cs",
               "RelativeDocumentMoniker": "Mercado.Domain\\Interfaces\\Repositorio\\IRepositorioCategoria.cs",
@@ -118,25 +132,23 @@
               "RelativeToolTip": "Mercado.Domain\\Interfaces\\Repositorio\\IRepositorioCategoria.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAcwBEAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T17:15:08.87Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-23T17:15:08.87Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "Produto.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Models\\Produto.cs",
               "RelativeDocumentMoniker": "Mercado.Domain\\Models\\Produto.cs",
               "ToolTip": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Models\\Produto.cs",
               "RelativeToolTip": "Mercado.Domain\\Models\\Produto.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwA0AAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA8wA0AAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T14:02:33.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-22T14:02:33.646Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Setor.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Models\\Setor.cs",
               "RelativeDocumentMoniker": "Mercado.Domain\\Models\\Setor.cs",
@@ -144,12 +156,11 @@
               "RelativeToolTip": "Mercado.Domain\\Models\\Setor.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAUwBQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T14:55:58.092Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-23T14:55:58.092Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Categoria.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Models\\Categoria.cs",
               "RelativeDocumentMoniker": "Mercado.Domain\\Models\\Categoria.cs",
@@ -157,12 +168,11 @@
               "RelativeToolTip": "Mercado.Domain\\Models\\Categoria.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAiwA8AAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T14:47:56.329Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-23T14:47:56.329Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CriarProdutoDto.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Dtos\\CriarProdutoDto.cs",
               "RelativeDocumentMoniker": "Mercado.Application\\Dtos\\CriarProdutoDto.cs",
@@ -170,12 +180,11 @@
               "RelativeToolTip": "Mercado.Application\\Dtos\\CriarProdutoDto.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAADwvxUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T17:32:17.333Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-23T17:32:17.333Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "IRepositorioProduto.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Interfaces\\Repositorio\\IRepositorioProduto.cs",
               "RelativeDocumentMoniker": "Mercado.Domain\\Interfaces\\Repositorio\\IRepositorioProduto.cs",
@@ -183,12 +192,11 @@
               "RelativeToolTip": "Mercado.Domain\\Interfaces\\Repositorio\\IRepositorioProduto.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAUwBIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T13:37:59.416Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-23T13:37:59.416Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "IRepositorioSetor.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Interfaces\\Repositorio\\IRepositorioSetor.cs",
               "RelativeDocumentMoniker": "Mercado.Domain\\Interfaces\\Repositorio\\IRepositorioSetor.cs",
@@ -196,8 +204,7 @@
               "RelativeToolTip": "Mercado.Domain\\Interfaces\\Repositorio\\IRepositorioSetor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T17:19:38.758Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-23T17:19:38.758Z"
             }
           ]
         }
