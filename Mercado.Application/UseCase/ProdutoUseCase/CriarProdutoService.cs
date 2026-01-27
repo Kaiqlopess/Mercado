@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mercado.Application.UseCase
+namespace Mercado.Application.UseCase.ProdutoUseCase
 {
     public class CriarProdutoService
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mercado.Application.Dtos
+namespace Mercado.Application.Dtos.ProdutoDto
 {
     public class CriarProdutoDto
     {
