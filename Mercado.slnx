@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="Mercado.Application/Mercado.Application.csproj" Id="429aab9a-fbff-4665-8b8a-b55559c9569b" />
   <Project Path="Mercado.Domain/Mercado.Domain.csproj" />
+  <Project Path="Mercado.Infra/Mercado.Infra.csproj" Id="2521d275-ed4a-4ca3-bf3d-3e082471b4f7" />
   <Project Path="Mercado/Mercado.Api.csproj" />
 </Solution>
