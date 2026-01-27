@@ -1,4 +1,5 @@
 ﻿using Mercado.Application.Dtos;
+using Mercado.Application.Dtos.ProdutoDto;
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
 using System;

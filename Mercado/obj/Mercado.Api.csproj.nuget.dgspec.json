@@ -4,14 +4,83 @@
     "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Mercado.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Mercado.Api.csproj": {
+    "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Mercado.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Mercado.Api.csproj",
-        "projectName": "Mercado.Api",
-        "projectPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Mercado.Api.csproj",
+        "projectUniqueName": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Mercado.Application.csproj",
+        "projectName": "Mercado.Application",
+        "projectPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Mercado.Application.csproj",
         "packagesPath": "C:\\Users\\algla\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\obj\\",
+        "outputPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\algla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Mercado.Domain.csproj": {
+                "projectPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Mercado.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Mercado.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Mercado.Domain.csproj",
+        "projectName": "Mercado.Domain",
+        "projectPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Mercado.Domain.csproj",
+        "packagesPath": "C:\\Users\\algla\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,7 +118,174 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Infra\\Mercado.Infra.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Infra\\Mercado.Infra.csproj",
+        "projectName": "Mercado.Infra",
+        "projectPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Infra\\Mercado.Infra.csproj",
+        "packagesPath": "C:\\Users\\algla\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Infra\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\algla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Mercado.Domain.csproj": {
+                "projectPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Domain\\Mercado.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Mercado.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Mercado.Api.csproj",
+        "projectName": "Mercado.Api",
+        "projectPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Mercado.Api.csproj",
+        "packagesPath": "C:\\Users\\algla\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\algla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Mercado.Application.csproj": {
+                "projectPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Mercado.Application.csproj"
+              },
+              "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Infra\\Mercado.Infra.csproj": {
+                "projectPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Infra\\Mercado.Infra.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"

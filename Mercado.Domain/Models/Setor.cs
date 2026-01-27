@@ -14,12 +14,12 @@ namespace Mercado.Domain.Models
         public DateOnly DataDeCriacao { get; private set; }
         public DateOnly DataDeModificaçao { get; private set; }
 
-        public Setor(string name, string descricao)
+        public Setor(string nome, string descricao)
         {
-            Id = Guid.NewGuid();
-            Nome = name;
-            Descricao = descricao;
-            DataDeCriacao = DateOnly.FromDateTime(DateTime.Now);
+            this.Id = Guid.NewGuid();
+            this.Nome = nome;
+            this.Descricao = descricao;
+            this.DataDeCriacao = DateOnly.FromDateTime(DateTime.Now);
             
         }
 
