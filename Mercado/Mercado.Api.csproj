@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Mercado.Application\Mercado.Application.csproj" />
     <ProjectReference Include="..\Mercado.Infra\Mercado.Infra.csproj" />
   </ItemGroup>
 

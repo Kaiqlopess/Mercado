@@ -20,11 +20,11 @@ namespace Mercado.Domain.Models
 
         public Categoria(string nome, string descricao, Guid setorId)
         {
-            Id = Guid.NewGuid();    
-            Nome = nome;
-            Descricao = descricao;
-            SetorId = setorId;
-            DataDeCriacao = DateOnly.FromDateTime(DateTime.Now);
+            this.Id = Guid.NewGuid();    
+            this.Nome = nome;
+            this.Descricao = descricao;
+            this.SetorId = setorId;
+            this.DataDeCriacao = DateOnly.FromDateTime(DateTime.Now);
         }
 
     }

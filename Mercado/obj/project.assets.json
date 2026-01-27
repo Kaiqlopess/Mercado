@@ -951,6 +951,19 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
+      "Mercado.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Mercado.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Mercado.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Mercado.Application.dll": {}
+        }
+      },
       "Mercado.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -2710,6 +2723,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Mercado.Application/1.0.0": {
+      "type": "project",
+      "path": "../Mercado.Application/Mercado.Application.csproj",
+      "msbuildProject": "../Mercado.Application/Mercado.Application.csproj"
+    },
     "Mercado.Domain/1.0.0": {
       "type": "project",
       "path": "../Mercado.Domain/Mercado.Domain.csproj",
@@ -2723,6 +2741,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Mercado.Application >= 1.0.0",
       "Mercado.Infra >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
@@ -2760,6 +2779,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Mercado.Application.csproj": {
+              "projectPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Mercado.Application.csproj"
+            },
             "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Infra\\Mercado.Infra.csproj": {
               "projectPath": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Infra\\Mercado.Infra.csproj"
             }

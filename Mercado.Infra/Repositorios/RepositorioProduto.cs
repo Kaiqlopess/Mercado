@@ -25,12 +25,12 @@ namespace Mercado.Infra.Repositorios
 
         public IEnumerable<Produto> BuscarPorCategoriaId(Guid id)
         {
-            return _context.Produtos.Where(p => p.CategoriaId == id);
+            return _context.Produtos.Where(p => p.CategoriaId == id).ToList();
         }
 
         public Produto BuscarPorCodigoDeBarras(long codigoDeBarras)
         {
-            var produto = _context.Produtos.Find(codigoDeBarras);
+            var produto = _context.Produtos.FirstOrDefault(p => p.CodigoDeBarras == codigoDeBarras);
 
             if(produto == null)
             {
@@ -55,7 +55,7 @@ namespace Mercado.Infra.Repositorios
         public void Deletar(Produto produto)
         {
             _context.Produtos.Remove(produto);
-            _context.SaveChanges(); throw new NotImplementedException();
+            _context.SaveChanges();
         }
 
         public void Salvar(Produto produto)

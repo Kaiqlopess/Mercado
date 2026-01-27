@@ -20,25 +20,25 @@
 
         public Produto(string nome, decimal preco, int quantidade, string descricao, string marca, long codigoDeBarras, DateOnly validade, Guid categoriaId)
         {
-            Id = Guid.NewGuid();
-            Nome = nome;
-            Preco = preco;
-            Quantidade = quantidade;
-            Descricao = descricao;
-            Marca = marca;
-            CodigoDeBarras = codigoDeBarras;
-            Validade = validade;
-            DataDeCriacao = DateOnly.FromDateTime(DateTime.Now);
-            CategoriaId = categoriaId;
+            this.Id = Guid.NewGuid();
+            this.Nome = nome;
+            this.Preco = preco;
+            this.Quantidade = quantidade;
+            this.Descricao = descricao;
+            this.Marca = marca;
+            this.CodigoDeBarras = codigoDeBarras;
+            this.Validade = validade;
+            this.DataDeCriacao = DateOnly.FromDateTime(DateTime.Now);
+            this.CategoriaId = categoriaId;
         }
 
 
         public void Modificar(decimal preco, int quantidade)
         {
-            Preco = preco;
-            Quantidade = quantidade;
+            this.Preco = preco;
+            this.Quantidade = quantidade;
 
-            DataDeModificaçao = DateOnly.FromDateTime(DateTime.Now);
+            this.DataDeModificaçao = DateOnly.FromDateTime(DateTime.Now);
         }
 
     }
