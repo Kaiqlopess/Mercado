@@ -21,7 +21,9 @@ builder.Services.AddScoped<CriarProdutoService>();
 builder.Services.AddScoped<CriarSetorService>();
 
 
+builder.Services.AddScoped<ObterProdutoService>();
 
+builder.Services.AddScoped<DeletarProdutoService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -12,26 +12,26 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 {
     public class CriarProdutoService
     {
-        private IRepositorioProduto _repositoro;
-        private IRepositorioCategoria _categoria;
+        private IRepositorioProduto _repositorioProduto;
+        private IRepositorioCategoria _repositorioCategoria;
 
-        public CriarProdutoService(IRepositorioProduto repositoro, IRepositorioCategoria categoria)
+        public CriarProdutoService(IRepositorioProduto repositorioProduto, IRepositorioCategoria repositorioCategoria)
         {
-            this._repositoro = repositoro;
-            this._categoria = categoria;
+            this._repositorioProduto = repositorioProduto;
+            this._repositorioCategoria = repositorioCategoria;
         }
 
-        public async Task Executar(CriarProdutoDto dto)
+        public void Executar(CriarProdutoDto dto)
         {
-            var categoria =   _categoria.BuscarPorId(dto.CategoriaId);
+            var categoria = _repositorioCategoria.BuscarPorId(dto.CategoriaId);
 
             if(categoria == null) {
-                throw new Exception("Categoria Nao existe");
+                throw new Exception("Categoria nao existe");
             }
 
             var produto = new Produto(dto.Nome, dto.Preco, dto.Quantidade, dto.Descricao, dto.Marca, dto.CodigoDeBarras, dto.Validade, dto.CategoriaId);
 
-             _repositoro.Salvar(produto);
+            _repositorioProduto.Salvar(produto);
         }
     }
 }

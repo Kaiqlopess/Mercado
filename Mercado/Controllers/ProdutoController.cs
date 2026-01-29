@@ -8,18 +8,37 @@ namespace Mercado.Api.Controllers
     [Route("[controller]")]
     public class ProdutoController : ControllerBase
     {
-        private CriarProdutoService _produtoService;
-        public ProdutoController(CriarProdutoService produtoService) 
+        private CriarProdutoService _criarService;
+        private ObterProdutoService _obterService;
+        private DeletarProdutoService _deletarProdutoService;
+        public ProdutoController(CriarProdutoService criarService, ObterProdutoService obterService, DeletarProdutoService deletarProdutoService) 
         {
-            this._produtoService = produtoService;
+            this._criarService = criarService;
+            this._obterService = obterService;
+            this._deletarProdutoService = deletarProdutoService;
         }
 
         [HttpPost]
-        public IActionResult CriarProduto(CriarProdutoDto dto) 
+        public IActionResult CriarProduto([FromBody] CriarProdutoDto dto) 
         {
-            _produtoService.Executar(dto);
+            _criarService.Executar(dto);
 
             return Ok(dto);
         }
+
+        [HttpGet]
+        public IActionResult ListarTodosOsProduto()
+        {
+            return Ok(_obterService.ObterTodosOsProdutos());
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeletarProduto(Guid id) 
+        {
+            _deletarProdutoService.Executar(id);
+
+            return Ok();
+        }
+
     }
 }
