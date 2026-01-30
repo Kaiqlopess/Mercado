@@ -35,9 +35,14 @@ namespace Mercado.Infra.Repositorios
             return categoria;
         }
 
+        public IEnumerable<Categoria> BuscarTodos()
+        {
+            return _context.Categorias.ToList();
+        }
+
         public IEnumerable<Categoria> BuscarPorSetorId(Guid id)
         {
-            return _context.Categorias.Where(c => c.SetorId == id).ToList(); ;
+            return _context.Categorias.Where(c => c.SetorId == id).ToList();
         }
 
         public void Deletar(Categoria categoria)

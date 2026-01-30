@@ -10,12 +10,14 @@ namespace Mercado.Api.Controllers
     {
         private CriarProdutoService _criarService;
         private ObterProdutoService _obterService;
-        private DeletarProdutoService _deletarProdutoService;
-        public ProdutoController(CriarProdutoService criarService, ObterProdutoService obterService, DeletarProdutoService deletarProdutoService) 
+        private DeletarProdutoService _deletarService;
+        private AtualizarProdutoService _atualizarService;
+        public ProdutoController(CriarProdutoService criarService, ObterProdutoService obterService, DeletarProdutoService deletarService, AtualizarProdutoService atualizarService) 
         {
             this._criarService = criarService;
             this._obterService = obterService;
-            this._deletarProdutoService = deletarProdutoService;
+            this._deletarService = deletarService;
+            this._atualizarService = atualizarService;
         }
 
         [HttpPost]
@@ -35,10 +37,19 @@ namespace Mercado.Api.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeletarProduto(Guid id) 
         {
-            _deletarProdutoService.Executar(id);
+            _deletarService.Executar(id);
 
             return Ok();
         }
+
+        [HttpPut("{id}")]
+        public IActionResult AtualizarProduto(Guid id, [FromBody] AtualizarProdutoDto dto)
+        {
+            _atualizarService.Executar(id, dto);
+
+            return Ok();
+        }
+
 
     }
 }

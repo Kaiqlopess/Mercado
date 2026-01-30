@@ -9,10 +9,12 @@ namespace Mercado.Api.Controllers
     public class CategoriaController : ControllerBase
     {
         private CriarCategoriaService _criarCategoriaService;
+        private ObterCategoriaService _obterCategoriaService;
 
-        public CategoriaController(CriarCategoriaService criarCategoriaService)
+        public CategoriaController(CriarCategoriaService criarCategoriaService, ObterCategoriaService obterCategoriaService)
         {
             this._criarCategoriaService = criarCategoriaService;   
+            this._obterCategoriaService = obterCategoriaService;
         }
 
         [HttpPost]
@@ -21,6 +23,15 @@ namespace Mercado.Api.Controllers
             _criarCategoriaService.Executar(dto);
 
             return Ok(dto);
+        }
+
+        [HttpGet]
+
+        public IActionResult ListarCategorias() 
+        {
+            
+
+            return Ok(_obterCategoriaService.Todos());
         }
     }
 }
