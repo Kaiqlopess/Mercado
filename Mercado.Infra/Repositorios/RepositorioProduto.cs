@@ -52,6 +52,11 @@ namespace Mercado.Infra.Repositorios
             return produto;
         }
 
+        public IEnumerable<Produto> BuscarTodos()
+        {
+            return _context.Produtos.ToList();
+        }
+
         public void Deletar(Produto produto)
         {
             _context.Produtos.Remove(produto);

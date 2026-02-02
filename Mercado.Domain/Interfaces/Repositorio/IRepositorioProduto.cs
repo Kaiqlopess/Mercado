@@ -17,6 +17,8 @@ namespace Mercado.Domain.Interfaces.Repositorio
         Produto BuscarPorCodigoDeBarras(long codigoDeBarras);
 
         IEnumerable<Produto> BuscarPorCategoriaId(Guid id);
+        IEnumerable<Produto> BuscarTodos();
+
     }
 }
 

@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\algla\\source\\repos\\Mercado\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|solutionrelative:mercado\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -37,16 +38,21 @@
     {
       "AbsoluteMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.application\\usecase\\categoriausecase\\criarcategoriaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|solutionrelative:mercado.application\\usecase\\categoriausecase\\criarcategoriaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.application\\dtos\\setordto\\criarsetordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|solutionrelative:mercado.application\\dtos\\setordto\\criarsetordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.domain\\models\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|solutionrelative:mercado.domain\\models\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.application\\dtos\\produtodto\\criarprodutodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|solutionrelative:mercado.application\\dtos\\produtodto\\criarprodutodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> Feature/Api
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.domain\\models\\setor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|solutionrelative:mercado.domain\\models\\setor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.application\\dtos\\categoriadto\\criarcategoriadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|solutionrelative:mercado.application\\dtos\\categoriadto\\criarcategoriadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.application\\usecase\\setorusecase\\criarsetorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{429AAB9A-FBFF-4665-8B8A-B55559C9569B}|Mercado.Application\\Mercado.Application.csproj|solutionrelative:mercado.application\\usecase\\setorusecase\\criarsetorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -65,6 +71,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado.domain\\interfaces\\repositorio\\irepositoriosetor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{47942A8B-E4A0-A4E7-B181-EB86FD183E55}|Mercado.Domain\\Mercado.Domain.csproj|solutionrelative:mercado.domain\\interfaces\\repositorio\\irepositoriosetor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|solutionrelative:mercado\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|solutionrelative:mercado\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|solutionrelative:mercado\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|c:\\users\\algla\\source\\repos\\mercado\\mercado\\controllers\\setorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{678D5060-F68C-76E9-D45C-69EAD8236A68}|Mercado\\Mercado.Api.csproj|solutionrelative:mercado\\controllers\\setorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> Feature/Api
     }
   ],
   "DocumentGroupContainers": [
@@ -78,6 +100,7 @@
           "Children": [
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Program.cs",
@@ -85,6 +108,15 @@
               "ToolTip": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Program.cs*",
               "RelativeToolTip": "Mercado\\Program.cs*",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+=======
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Program.cs",
+              "RelativeDocumentMoniker": "Mercado\\Program.cs",
+              "ToolTip": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Program.cs",
+              "RelativeToolTip": "Mercado\\Program.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAUwEUAAAAAAAAAAAAAAA==",
+>>>>>>> Feature/Api
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-22T14:01:55.841Z",
               "IsPinned": true,
@@ -92,6 +124,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\appsettings.json",
@@ -153,11 +186,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+=======
+              "DocumentIndex": 0,
+              "Title": "CriarSetorDto.cs",
+              "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Dtos\\SetorDto\\CriarSetorDto.cs",
+              "RelativeDocumentMoniker": "Mercado.Application\\Dtos\\SetorDto\\CriarSetorDto.cs",
+              "ToolTip": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Dtos\\SetorDto\\CriarSetorDto.cs",
+              "RelativeToolTip": "Mercado.Application\\Dtos\\SetorDto\\CriarSetorDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T18:08:49.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+>>>>>>> Feature/Api
               "Title": "CriarProdutoDto.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Dtos\\ProdutoDto\\CriarProdutoDto.cs",
               "RelativeDocumentMoniker": "Mercado.Application\\Dtos\\ProdutoDto\\CriarProdutoDto.cs",
               "ToolTip": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Dtos\\ProdutoDto\\CriarProdutoDto.cs",
               "RelativeToolTip": "Mercado.Application\\Dtos\\ProdutoDto\\CriarProdutoDto.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAAgAAAAAAAAAAAAuwAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-27T19:30:06.3Z"
@@ -165,13 +215,24 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
+=======
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T18:08:39.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+>>>>>>> Feature/Api
               "Title": "CriarCategoriaDto.cs",
               "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Dtos\\CategoriaDto\\CriarCategoriaDto.cs",
               "RelativeDocumentMoniker": "Mercado.Application\\Dtos\\CategoriaDto\\CriarCategoriaDto.cs",
               "ToolTip": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado.Application\\Dtos\\CategoriaDto\\CriarCategoriaDto.cs",
               "RelativeToolTip": "Mercado.Application\\Dtos\\CategoriaDto\\CriarCategoriaDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2026-01-25T19:34:00.504Z"
             },
             {
@@ -269,6 +330,49 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-23T17:19:38.758Z"
+=======
+              "WhenOpened": "2026-02-02T18:08:30.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CategoriaController.cs",
+              "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Controllers\\CategoriaController.cs",
+              "RelativeDocumentMoniker": "Mercado\\Controllers\\CategoriaController.cs",
+              "ToolTip": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Controllers\\CategoriaController.cs",
+              "RelativeToolTip": "Mercado\\Controllers\\CategoriaController.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAQwFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T14:37:52.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProdutoController.cs",
+              "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Controllers\\ProdutoController.cs",
+              "RelativeDocumentMoniker": "Mercado\\Controllers\\ProdutoController.cs",
+              "ToolTip": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Controllers\\ProdutoController.cs",
+              "RelativeToolTip": "Mercado\\Controllers\\ProdutoController.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAQwEoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T14:37:51.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SetorController.cs",
+              "DocumentMoniker": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Controllers\\SetorController.cs",
+              "RelativeDocumentMoniker": "Mercado\\Controllers\\SetorController.cs",
+              "ToolTip": "C:\\Users\\algla\\source\\repos\\Mercado\\Mercado\\Controllers\\SetorController.cs",
+              "RelativeToolTip": "Mercado\\Controllers\\SetorController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T13:11:41.256Z",
+              "EditorCaption": ""
+>>>>>>> Feature/Api
             }
           ]
         }

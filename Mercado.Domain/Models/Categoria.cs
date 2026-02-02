@@ -16,8 +16,6 @@ namespace Mercado.Domain.Models
         public Guid SetorId { get; private set; }
         public Setor Setor {  get; private set; }
 
-
-
         public Categoria(string nome, string descricao, Guid setorId)
         {
             this.Id = Guid.NewGuid();    
@@ -25,6 +23,13 @@ namespace Mercado.Domain.Models
             this.Descricao = descricao;
             this.SetorId = setorId;
             this.DataDeCriacao = DateOnly.FromDateTime(DateTime.Now);
+        }
+
+        public void Modificar(string nome, string descricao)
+        {
+            this.Nome = nome;
+            this.Descricao= descricao;
+            this.DataDeModificaçao = DateOnly.FromDateTime(DateTime.Now);
         }
 
     }

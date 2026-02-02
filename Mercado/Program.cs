@@ -21,12 +21,40 @@ builder.Services.AddScoped<CriarProdutoService>();
 builder.Services.AddScoped<CriarSetorService>();
 
 
+<<<<<<< HEAD
+=======
+builder.Services.AddScoped<ObterProdutoService>();
+builder.Services.AddScoped<ObterCategoriaService>();
+builder.Services.AddScoped<ObterSetorService>();
+
+builder.Services.AddScoped<DeletarProdutoService>();
+builder.Services.AddScoped<DeletarCategoriaService>();
+builder.Services.AddScoped<DeletarSetorService>();
+
+builder.Services.AddScoped<AtualizarProdutoService>();
+builder.Services.AddScoped<AtualizarCategoriaService>();
+builder.Services.AddScoped<AtualizarSetorService>();
+
+
+>>>>>>> Feature/Api
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MinhaAppFront", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors("MinhaAppFront");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

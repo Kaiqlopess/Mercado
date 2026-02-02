@@ -8,9 +8,9 @@ namespace Mercado.Domain.Models
 {
     public class Setor
     {
-        public Guid Id { get; set; }
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
+        public Guid Id { get; private set; }
+        public string Nome { get; private set; }
+        public string Descricao { get; private set; }
         public DateOnly DataDeCriacao { get; private set; }
         public DateOnly DataDeModificaçao { get; private set; }
 
@@ -21,6 +21,13 @@ namespace Mercado.Domain.Models
             this.Descricao = descricao;
             this.DataDeCriacao = DateOnly.FromDateTime(DateTime.Now);
             
+        }
+
+        public void Modificar(string nome, string descricao)
+        {
+            this.Nome = nome;
+            this.Descricao = descricao; 
+            this.DataDeModificaçao = DateOnly.FromDateTime(DateTime.Now);
         }
 
     }
