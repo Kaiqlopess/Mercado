@@ -23,31 +23,59 @@ namespace Mercado.Api.Controllers
         [HttpPost]
         public IActionResult CriarProduto([FromBody] CriarProdutoDto dto) 
         {
-            _criarService.Executar(dto);
-
-            return Ok(dto);
+            try
+            {
+                _criarService.Executar(dto);
+                return Ok(dto);
+            }
+            catch (Exception ex) 
+            {
+                return BadRequest(new {mensagem = ex.Message});
+            }
+          
         }
 
         [HttpGet]
         public IActionResult ListarTodosOsProduto()
         {
-            return Ok(_obterService.ObterTodosOsProdutos());
+            try
+            {
+                return Ok(_obterService.ObterTodosOsProdutos());
+            }
+            catch (Exception ex) 
+            {
+                return BadRequest(new {mensagem = ex.Message});
+            }
+            
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeletarProduto(Guid id) 
         {
-            _deletarService.Executar(id);
-
-            return Ok();
+            try
+            {
+                _deletarService.Executar(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new {mensagem = ex.Message});
+            }
+            
         }
 
         [HttpPut("{id}")]
         public IActionResult AtualizarProduto(Guid id, [FromBody] AtualizarProdutoDto dto)
         {
-            _atualizarService.Executar(id, dto);
-
-            return Ok();
+            try
+            {
+                _atualizarService.Executar(id, dto);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensagem = ex.Message});
+            }  
         }
 
 

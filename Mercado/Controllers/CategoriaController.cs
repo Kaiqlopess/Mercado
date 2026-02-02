@@ -24,32 +24,62 @@ namespace Mercado.Api.Controllers
         [HttpPost]
         public IActionResult CriandoCategoria(CriarCategoriaDto dto)
         {
-            _criarCategoriaService.Executar(dto);
+            try
+            {
+                _criarCategoriaService.Executar(dto);
+                return Ok(dto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensagem = ex.Message});
+            }
 
-            return Ok(dto);
+            
         }
 
         [HttpGet]
 
         public IActionResult Listar() 
         {
-            return Ok(_obterCategoriaService.ObrterTodasAsCategorias());
+            try
+            {
+                return Ok(_obterCategoriaService.ObrterTodasAsCategorias());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensagem = ex.Message });
+            }
+            
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeletandoCategoria(Guid id) 
         {
-            _deletarCategoriaService.Executar(id);
-
-            return Ok();
+            try
+            {
+                _deletarCategoriaService.Executar(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensagem = ex.Message });
+            }
+            
         }
 
         [HttpPut("{id}")]
         public IActionResult AtualizandoCategoria(Guid id, [FromBody] AtualizarCategoriaDto dto)
         {
-            _atualizarCategoriaService.Executar(id, dto);
-
-            return Ok();
+            try
+            {
+                _atualizarCategoriaService.Executar(id, dto);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensagem = ex.Message });
+            }
+            
         }
 
 
