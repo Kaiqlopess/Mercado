@@ -23,5 +23,11 @@ namespace Mercado.Domain.Models
             
         }
 
+        public void Modificar(string nome, string descricao)
+        {
+            this.Nome = nome;
+            this.Descricao = descricao; 
+        }
+
     }
 }

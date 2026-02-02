@@ -36,6 +36,11 @@ namespace Mercado.Infra.Repositorios
             return setor;
         }
 
+        public IEnumerable<Setor> BuscarTodos()
+        {
+            return _context.Setores.ToList();
+        }
+
         public void Deletar(Setor setor)
         {
             _context.Setores.Remove(setor);

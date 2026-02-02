@@ -1,4 +1,5 @@
-﻿using Mercado.Domain.Interfaces.Repositorio;
+﻿using Mercado.Application.Dtos.CategoriaDto;
+using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
             this._repositorioCategoria = repositorioCategoria;
         }
 
-        public Categoria PorId(Guid id)
+        public ObterCategoriaDto ObterTodasAsCategoriasPorId(Guid id)
         {
             var categoria = _repositorioCategoria.BuscarPorId(id);
 
@@ -25,24 +26,41 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
                 throw new Exception("Categoria nao existe");
             }
 
-            return categoria;
+            var dto = new ObterCategoriaDto
+            {
+                Nome = categoria.Nome,
+                Descricao = categoria.Descricao,
+            };
+
+            return dto;
         }
 
-        public IEnumerable<Categoria> Todos()
+        public IEnumerable<ObterCategoriaDto> ObrterTodasAsCategorias()
         {
-            return _repositorioCategoria.BuscarTodos();
+            var categorias = _repositorioCategoria.BuscarTodos();
+
+            var dtos = categorias.Select(c => new ObterCategoriaDto
+            {
+                Nome = c.Nome,
+                Descricao = c.Descricao
+            });
+
+            return dtos;
+
         }
 
-        public IEnumerable<Categoria> PorSetorId(Guid id)
+        public IEnumerable<ObterCategoriaDto> ObterTodasAsCategoriasPorSetorId(Guid id)
         {
-            return _repositorioCategoria.BuscarPorSetorId(id);
+            var categorias = _repositorioCategoria.BuscarPorSetorId(id);
+
+            var dtos = categorias.Select(c => new ObterCategoriaDto
+            {
+                Nome = c.Nome,
+                Descricao = c.Descricao
+            });
+
+            return dtos;
         }
-
-
-
-
-
-
 
 
     }

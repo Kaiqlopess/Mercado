@@ -9,9 +9,11 @@ namespace Mercado.Api.Controllers
     public class SetorController : ControllerBase
     {
         private CriarSetorService _setorService;
-        public SetorController(CriarSetorService setorService)
+        private ObterSetorService _obterService;
+        public SetorController(CriarSetorService setorService, ObterSetorService obterService)
         {
             this._setorService = setorService;
+            this._obterService = obterService;
         }
 
         [HttpPost]
@@ -20,6 +22,19 @@ namespace Mercado.Api.Controllers
             _setorService.Executar(dto);
 
             return Ok(dto); 
+        }
+
+        [HttpGet]
+        public IActionResult ObterSetor()
+        {
+            return Ok(_obterService.ObterTodosOsSetores());
+        }
+
+        [HttpDelete]
+        public IActionResult DeletarSetor()
+        {
+
+            return Ok();
         }
 
 
