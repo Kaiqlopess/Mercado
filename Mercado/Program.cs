@@ -25,12 +25,13 @@ builder.Services.AddScoped<ObterProdutoService>();
 builder.Services.AddScoped<ObterCategoriaService>();
 builder.Services.AddScoped<ObterSetorService>();
 
-
 builder.Services.AddScoped<DeletarProdutoService>();
 builder.Services.AddScoped<DeletarCategoriaService>();
+builder.Services.AddScoped<DeletarSetorService>();
 
 builder.Services.AddScoped<AtualizarProdutoService>();
 builder.Services.AddScoped<AtualizarCategoriaService>();
+builder.Services.AddScoped<AtualizarSetorService>();
 
 
 builder.Services.AddControllers();

@@ -10,10 +10,14 @@ namespace Mercado.Api.Controllers
     {
         private CriarSetorService _setorService;
         private ObterSetorService _obterService;
-        public SetorController(CriarSetorService setorService, ObterSetorService obterService)
+        private DeletarSetorService _deleteService;
+        private AtualizarSetorService _atualizarSetor;
+        public SetorController(CriarSetorService setorService, ObterSetorService obterService, DeletarSetorService deleteService, AtualizarSetorService atualizarSetor)
         {
             this._setorService = setorService;
             this._obterService = obterService;
+            this._deleteService = deleteService;
+            this._atualizarSetor = atualizarSetor;
         }
 
         [HttpPost]
@@ -21,7 +25,7 @@ namespace Mercado.Api.Controllers
         {
             _setorService.Executar(dto);
 
-            return Ok(dto); 
+            return Ok(dto);
         }
 
         [HttpGet]
@@ -30,11 +34,20 @@ namespace Mercado.Api.Controllers
             return Ok(_obterService.ObterTodosOsSetores());
         }
 
-        [HttpDelete]
-        public IActionResult DeletarSetor()
+        [HttpDelete("{id}")]
+        public IActionResult DeletarSetor(Guid id)
         {
+            _deleteService.Executar(id);
 
             return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult AtualizarSetor(Guid id, [FromBody] AtualizarSetorDto dto)
+        {
+            _atualizarSetor.Executar(id, dto);
+
+            return Ok(dto);
         }
 
 
