@@ -1,19 +1,14 @@
-﻿
-
-
-
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mercado.Application.Dtos
+namespace Mercado.Application.Dtos.CategoriaDto
 {
-    public class CriarSetorDto
+    public class ObterCategoriaDto
     {
-        public string Nome {  get; set; }
+        public string Nome { get; set; }
         public string Descricao { get; set; }
     }
 }

@@ -16,15 +16,20 @@ namespace Mercado.Domain.Models
         public Guid SetorId { get; private set; }
         public Setor Setor {  get; private set; }
 
-
-
         public Categoria(string nome, string descricao, Guid setorId)
         {
-            Id = Guid.NewGuid();    
-            Nome = nome;
-            Descricao = descricao;
-            SetorId = setorId;
-            DataDeCriacao = DateOnly.FromDateTime(DateTime.Now);
+            this.Id = Guid.NewGuid();    
+            this.Nome = nome;
+            this.Descricao = descricao;
+            this.SetorId = setorId;
+            this.DataDeCriacao = DateOnly.FromDateTime(DateTime.Now);
+        }
+
+        public void Modificar(string nome, string descricao)
+        {
+            this.Nome = nome;
+            this.Descricao= descricao;
+            this.DataDeModificaçao = DateOnly.FromDateTime(DateTime.Now);
         }
 
     }

@@ -16,5 +16,7 @@ namespace Mercado.Domain.Interfaces.Repositorio
         Categoria BuscarPorId(Guid id);
 
         IEnumerable<Categoria> BuscarPorSetorId(Guid id);
+        IEnumerable<Categoria> BuscarTodos();
+
     }
 }

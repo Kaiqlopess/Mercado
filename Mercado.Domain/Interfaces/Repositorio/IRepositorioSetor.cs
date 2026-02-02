@@ -14,5 +14,6 @@ namespace Mercado.Domain.Interfaces.Repositorio
         void Deletar(Setor setor);
 
         Setor BuscarPorId(Guid id);
+        IEnumerable<Setor> BuscarTodos();
     }
 }
