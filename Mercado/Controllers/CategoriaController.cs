@@ -81,7 +81,5 @@ namespace Mercado.Api.Controllers
             }
             
         }
-
-
     }
 }

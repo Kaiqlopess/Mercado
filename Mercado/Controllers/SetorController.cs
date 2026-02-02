@@ -23,31 +23,61 @@ namespace Mercado.Api.Controllers
         [HttpPost]
         public IActionResult CriarSetor(CriarSetorDto dto)
         {
-            _setorService.Executar(dto);
-
-            return Ok(dto);
+            try
+            {
+                _setorService.Executar(dto);
+                return Ok(dto);
+            }
+            catch (Exception ex) 
+            {
+                return BadRequest(new { mensagem = ex.Message });
+            }
         }
 
         [HttpGet]
-        public IActionResult ObterSetor()
+        public IActionResult ObterSetores()
         {
-            return Ok(_obterService.ObterTodosOsSetores());
+            try
+            {
+                return Ok(_obterService.ObterTodosOsSetores());
+            }
+            catch (Exception ex) 
+            {
+                return BadRequest(new { mensagem = ex.Message });
+            }
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeletarSetor(Guid id)
         {
-            _deleteService.Executar(id);
+            try
+            {
+                _deleteService.Executar(id);
+                return Ok();
+            }
+            catch (Exception ex) 
+            {
+                return BadRequest(new { mensagem = ex.Message });  
+            }
+                
 
-            return Ok();
+           
         }
 
         [HttpPut("{id}")]
         public IActionResult AtualizarSetor(Guid id, [FromBody] AtualizarSetorDto dto)
         {
-            _atualizarSetor.Executar(id, dto);
 
-            return Ok(dto);
+            try
+            {
+                _atualizarSetor.Executar(id, dto);
+                return Ok(dto);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(new { mensagem = ex.Message });
+            }
+            
         }
 
 
