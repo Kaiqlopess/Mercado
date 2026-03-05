@@ -29,7 +29,7 @@ namespace Mercado.Application.UseCase.SetorUseCase
             var dto = new ObterSetorDto
             {
                 Nome = setor.Nome,
-                Descricao = setor.Descricao,
+                Id = setor.Id,
             };
 
             return dto;
@@ -39,10 +39,10 @@ namespace Mercado.Application.UseCase.SetorUseCase
         {
             var setor = _repositorioSetor.BuscarTodos();
 
-            var dtos = setor.Select(c => new ObterSetorDto
+            var dtos = setor.Select(s => new ObterSetorDto
             {
-                Nome = c.Nome,
-                Descricao = c.Descricao
+                Nome = s.Nome,
+                Id = s.Id,
             });
 
             return dtos;

@@ -23,8 +23,10 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 
             var dtos = produtos.Select(p => new ObterProdutoDto
             {
+                Id = p.Id,
                 Nome = p.Nome,
                 Preco = p.Preco,
+                Quantidade = p.Quantidade,
                 Marca = p.Marca,
                 Descricao = p.Descricao,
                 Validade = p.Validade,
@@ -42,8 +44,10 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 
             var dtos = produtos.Select(p => new ObterProdutoDto
             {
+                Id = p.Id,
                 Nome = p.Nome,
                 Preco = p.Preco,
+                Quantidade = p.Quantidade,
                 Marca = p.Marca,
                 Descricao = p.Descricao,
                 Validade = p.Validade,
@@ -66,8 +70,10 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 
             var dto = new ObterProdutoDto
             {
+                Id = produto.Id,
                 Nome = produto.Nome,
                 Preco = produto.Preco,
+                Quantidade = produto.Quantidade,
                 Marca = produto.Marca,
                 Descricao = produto.Descricao,
                 Validade = produto.Validade,
@@ -89,8 +95,10 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 
             var dto = new ObterProdutoDto
             {
+                Id = produto.Id,
                 Nome = produto.Nome,
                 Preco = produto.Preco,
+                Quantidade = produto.Quantidade,
                 Marca = produto.Marca,
                 Descricao = produto.Descricao,
                 Validade = produto.Validade,

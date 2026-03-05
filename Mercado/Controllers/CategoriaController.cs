@@ -38,12 +38,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpGet]
-
         public IActionResult Listar() 
         {
             try
             {
-                return Ok(_obterCategoriaService.ObrterTodasAsCategorias());
+                return Ok(_obterCategoriaService.ObterTodasAsCategorias());
             }
             catch (Exception ex)
             {

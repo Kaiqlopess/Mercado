@@ -41,5 +41,10 @@
             this.DataDeModificaçao = DateOnly.FromDateTime(DateTime.Now);
         }
 
+        public void ProdutoVendido(int NovaQuantidade)
+        {
+            Quantidade = Quantidade - NovaQuantidade;
+        }
+
     }
 }

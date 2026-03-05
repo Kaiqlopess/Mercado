@@ -17,7 +17,7 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
             this._repositorioCategoria = repositorioCategoria;
         }
 
-        public ObterCategoriaDto ObterTodasAsCategoriasPorId(Guid id)
+        public ObterCategoriaDto ObterCategoriasPorId(Guid id)
         {
             var categoria = _repositorioCategoria.BuscarPorId(id);
 
@@ -28,21 +28,21 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
 
             var dto = new ObterCategoriaDto
             {
+                Id = categoria.Id,
                 Nome = categoria.Nome,
-                Descricao = categoria.Descricao,
             };
 
             return dto;
         }
 
-        public IEnumerable<ObterCategoriaDto> ObrterTodasAsCategorias()
+        public IEnumerable<ObterCategoriaDto> ObterTodasAsCategorias()
         {
             var categorias = _repositorioCategoria.BuscarTodos();
 
             var dtos = categorias.Select(c => new ObterCategoriaDto
             {
+                Id = c.Id,
                 Nome = c.Nome,
-                Descricao = c.Descricao
             });
 
             return dtos;
@@ -55,8 +55,8 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
 
             var dtos = categorias.Select(c => new ObterCategoriaDto
             {
+                Id = c.Id,
                 Nome = c.Nome,
-                Descricao = c.Descricao
             });
 
             return dtos;

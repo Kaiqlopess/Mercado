@@ -12,12 +12,14 @@ namespace Mercado.Api.Controllers
         private ObterProdutoService _obterService;
         private DeletarProdutoService _deletarService;
         private AtualizarProdutoService _atualizarService;
-        public ProdutoController(CriarProdutoService criarService, ObterProdutoService obterService, DeletarProdutoService deletarService, AtualizarProdutoService atualizarService) 
+        private ProdutoVendidoNoCaixaService _produtoVendidoNoCaixa;
+        public ProdutoController(CriarProdutoService criarService, ObterProdutoService obterService, DeletarProdutoService deletarService, AtualizarProdutoService atualizarService, ProdutoVendidoNoCaixaService produtoVendidoNoCaixa) 
         {
             this._criarService = criarService;
             this._obterService = obterService;
             this._deletarService = deletarService;
             this._atualizarService = atualizarService;
+            this._produtoVendidoNoCaixa = produtoVendidoNoCaixa;
         }
 
         [HttpPost]
@@ -49,6 +51,20 @@ namespace Mercado.Api.Controllers
             
         }
 
+        [HttpGet("categoria/{id}")]
+        public IActionResult ListarProdutosPorCategoriaId(Guid id)
+        {
+            try
+            {
+                return Ok(_obterService.ObterProdutosPorCategoriaId(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensagem = ex.Message });
+            }
+
+        }
+
         [HttpDelete("{id}")]
         public IActionResult DeletarProduto(Guid id) 
         {
@@ -76,6 +92,22 @@ namespace Mercado.Api.Controllers
             {
                 return BadRequest(new { mensagem = ex.Message});
             }  
+        }
+
+        [HttpPost("vender")]
+        public IActionResult ProdutoVendido([FromBody] ProdutoVendidoDto dto)
+        {
+            try
+            {
+                _produtoVendidoNoCaixa.Executar(dto.CodigoDeBarras, dto.Quantidade);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensagem = ex.Message });
+            }
+           
         }
 
 

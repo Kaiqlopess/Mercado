@@ -8,6 +8,7 @@ namespace Mercado.Application.Dtos.ProdutoDto
 {
     public class ObterProdutoDto
     {
+        public Guid Id { get; set; }
         public string Nome { get; set; }
         public decimal Preco { get; set; }
         public int Quantidade { get; set; }

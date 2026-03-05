@@ -29,6 +29,9 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
                 throw new Exception("Categoria nao existe");
             }
 
+
+
+
             var produto = new Produto(dto.Nome, dto.Preco, dto.Quantidade, dto.Descricao, dto.Marca, dto.CodigoDeBarras, dto.Validade, dto.CategoriaId);
 
             _repositorioProduto.Salvar(produto);

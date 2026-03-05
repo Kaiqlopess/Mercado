@@ -21,8 +21,7 @@ builder.Services.AddScoped<CriarProdutoService>();
 builder.Services.AddScoped<CriarSetorService>();
 
 
-<<<<<<< HEAD
-=======
+
 builder.Services.AddScoped<ObterProdutoService>();
 builder.Services.AddScoped<ObterCategoriaService>();
 builder.Services.AddScoped<ObterSetorService>();
@@ -35,8 +34,9 @@ builder.Services.AddScoped<AtualizarProdutoService>();
 builder.Services.AddScoped<AtualizarCategoriaService>();
 builder.Services.AddScoped<AtualizarSetorService>();
 
+builder.Services.AddScoped<ProdutoVendidoNoCaixaService>();
 
->>>>>>> Feature/Api
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
