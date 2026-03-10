@@ -1,13 +1,9 @@
 ﻿using Mercado.Domain.Interfaces.Repositorio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Mercado.Domain.Models;
 
 namespace Mercado.Application.UseCase.ProdutoUseCase
 {
-    public class DeletarProdutoService
+    public class DeletarProdutoService : IDeletarProdutoService
     {
         private IRepositorioProduto _repositorioProduto;
         public DeletarProdutoService(IRepositorioProduto repositorioProduto) 
@@ -17,7 +13,7 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 
         public void Executar(Guid id)
         {
-            var produto = _repositorioProduto.BuscarPorId(id);
+            Produto produto = _repositorioProduto.BuscarPorId(id);
 
             if(produto == null)
             {

@@ -8,11 +8,11 @@ namespace Mercado.Api.Controllers
     [Route("[controller]")]
     public class SetorController : ControllerBase
     {
-        private CriarSetorService _setorService;
-        private ObterSetorService _obterService;
-        private DeletarSetorService _deleteService;
-        private AtualizarSetorService _atualizarSetor;
-        public SetorController(CriarSetorService setorService, ObterSetorService obterService, DeletarSetorService deleteService, AtualizarSetorService atualizarSetor)
+        private ICriarSetorService _setorService;
+        private IObterSetorService _obterService;
+        private IDeletarSetorService _deleteService;
+        private IAtualizarSetorService _atualizarSetor;
+        public SetorController(ICriarSetorService setorService, IObterSetorService obterService, IDeletarSetorService deleteService, IAtualizarSetorService atualizarSetor)
         {
             this._setorService = setorService;
             this._obterService = obterService;

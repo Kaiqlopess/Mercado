@@ -1,14 +1,10 @@
 ﻿using Mercado.Application.Dtos.SetorDto;
 using Mercado.Domain.Interfaces.Repositorio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Mercado.Domain.Models;
 
 namespace Mercado.Application.UseCase.SetorUseCase
 {
-    public class AtualizarSetorService
+    public class AtualizarSetorService : IAtualizarSetorService
     {
         private IRepositorioSetor _repositorioSetor;
         public AtualizarSetorService(IRepositorioSetor repositorioSetor)
@@ -18,9 +14,9 @@ namespace Mercado.Application.UseCase.SetorUseCase
 
         public void Executar(Guid id, AtualizarSetorDto dto)
         {
-            var setor = _repositorioSetor.BuscarPorId(id);
+            Setor setor = _repositorioSetor.BuscarPorId(id);
 
-            if(setor == null)
+            if (setor == null)
             {
                 throw new Exception("Setor nao encontrado");
             }

@@ -1,11 +1,6 @@
 ﻿using Mercado.Application.Dtos.CategoriaDto;
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mercado.Application.UseCase.CategoriaUseCase
 {
@@ -51,7 +46,7 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
 
         public IEnumerable<ObterCategoriaDto> ObterTodasAsCategoriasPorSetorId(Guid id)
         {
-            var categorias = _repositorioCategoria.BuscarPorSetorId(id);
+            IEnumerable<Categoria> categorias = _repositorioCategoria.BuscarPorSetorId(id);
 
             IEnumerable<ObterCategoriaDto> dtos = categorias.Select(c => new ObterCategoriaDto
             {

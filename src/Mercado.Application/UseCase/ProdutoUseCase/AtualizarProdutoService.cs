@@ -1,14 +1,10 @@
 ﻿using Mercado.Application.Dtos.ProdutoDto;
 using Mercado.Domain.Interfaces.Repositorio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Mercado.Domain.Models;
 
 namespace Mercado.Application.UseCase.ProdutoUseCase
 {
-    public class AtualizarProdutoService
+    public class AtualizarProdutoService : IAtualizarProdutoService
     {
         private IRepositorioProduto _repositorioProduto;
 
@@ -19,7 +15,7 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 
         public void Executar(Guid id, AtualizarProdutoDto dto)
         {
-            var produto = _repositorioProduto.BuscarPorId(id);
+            Produto produto = _repositorioProduto.BuscarPorId(id);
 
             if(produto == null)
             {

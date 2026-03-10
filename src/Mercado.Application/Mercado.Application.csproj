@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Mercado.Domain\Mercado.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UseCase\Interface\CategoriaUseCase\" />
+  </ItemGroup>
+
 </Project>

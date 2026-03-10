@@ -8,12 +8,12 @@ namespace Mercado.Api.Controllers
     [Route("[controller]")]
     public class ProdutoController : ControllerBase
     {
-        private CriarProdutoService _criarService;
-        private ObterProdutoService _obterService;
-        private DeletarProdutoService _deletarService;
-        private AtualizarProdutoService _atualizarService;
-        private ProdutoVendidoNoCaixaService _produtoVendidoNoCaixa;
-        public ProdutoController(CriarProdutoService criarService, ObterProdutoService obterService, DeletarProdutoService deletarService, AtualizarProdutoService atualizarService, ProdutoVendidoNoCaixaService produtoVendidoNoCaixa) 
+        private ICriarProdutoService _criarService;
+        private IObterProdutoService _obterService;
+        private IDeletarProdutoService _deletarService;
+        private IAtualizarProdutoService _atualizarService;
+        private IProdutoVendidoNoCaixaService _produtoVendidoNoCaixa;
+        public ProdutoController(ICriarProdutoService criarService, IObterProdutoService obterService, IDeletarProdutoService deletarService, IAtualizarProdutoService atualizarService, IProdutoVendidoNoCaixaService produtoVendidoNoCaixa) 
         {
             this._criarService = criarService;
             this._obterService = obterService;
@@ -27,8 +27,8 @@ namespace Mercado.Api.Controllers
         {
             try
             {
-                _criarService.Executar(dto);
-                return Ok(dto);
+                ProdutoResponseDto produto = _criarService.Executar(dto);    
+                return Ok(produto);
             }
             catch (Exception ex) 
             {

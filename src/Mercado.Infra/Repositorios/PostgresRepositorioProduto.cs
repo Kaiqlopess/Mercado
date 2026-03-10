@@ -4,11 +4,11 @@ using Mercado.Infra.Context;
 
 namespace Mercado.Infra.Repositorios
 {
-    public class RepositorioProduto : IRepositorioProduto
+    public class PostgresRepositorioProduto : IRepositorioProduto
     {
         private MercadoContext _context;
 
-        public RepositorioProduto(MercadoContext context)
+        public PostgresRepositorioProduto(MercadoContext context)
         {
             this._context = context;
         }
@@ -25,7 +25,7 @@ namespace Mercado.Infra.Repositorios
 
         public Produto BuscarPorCodigoDeBarras(long codigoDeBarras)
         {
-            var produto = _context.Produtos.FirstOrDefault(p => p.CodigoDeBarras == codigoDeBarras);
+            Produto produto = _context.Produtos.FirstOrDefault(p => p.CodigoDeBarras == codigoDeBarras);
 
             if(produto == null)
             {
@@ -37,7 +37,7 @@ namespace Mercado.Infra.Repositorios
 
         public Produto BuscarPorId(Guid id)
         {
-            var produto = _context.Produtos.Find(id);
+            Produto produto = _context.Produtos.Find(id);
 
             if (produto == null)
             {
@@ -58,10 +58,18 @@ namespace Mercado.Infra.Repositorios
             _context.SaveChanges();
         }
 
-        public void Salvar(Produto produto)
+        public Produto Salvar(Produto produto)
         {
-            _context.Produtos.Add(produto);
-            _context.SaveChanges();
+            try
+            {
+                _context.Produtos.Add(produto);
+                _context.SaveChanges();
+
+                return produto;
+            }
+            catch (Exception ex) {
+                throw new Exception($"{ex.Message}, Erro ao salvar no banco de dados");
+            }
         }
     }
 }

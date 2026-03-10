@@ -12,27 +12,27 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<MercadoContext>(opts => opts.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<IRepositorioSetor, RepositorioSetor>();
-builder.Services.AddScoped<IRepositorioProduto, RepositorioProduto>();
-builder.Services.AddScoped<IRepositorioCategoria, RepositorioCategoria>();
+builder.Services.AddScoped<IRepositorioSetor, PostgresRepositorioSetor>();
+builder.Services.AddScoped<IRepositorioProduto, PostgresRepositorioProduto>();
+builder.Services.AddScoped<IRepositorioCategoria, PostgresRepositorioCategoria>();
 
-builder.Services.AddScoped<CriarCategoriaService>();
-builder.Services.AddScoped<CriarProdutoService>();
-builder.Services.AddScoped<CriarSetorService>();
+builder.Services.AddScoped<ICriarProdutoService, CriarProdutoService>();
+builder.Services.AddScoped<ICriarCategoriaService, CriarCategoriaService>();
+builder.Services.AddScoped<ICriarSetorService, CriarSetorService>();
 
 
 
-builder.Services.AddScoped<ObterProdutoService>();
-builder.Services.AddScoped<ObterCategoriaService>();
-builder.Services.AddScoped<ObterSetorService>();
+builder.Services.AddScoped<IObterProdutoService, ObterProdutoService>();
+builder.Services.AddScoped<IObterCategoriaService, ObterCategoriaService>();
+builder.Services.AddScoped<IObterSetorService, ObterSetorService>();
 
-builder.Services.AddScoped<DeletarProdutoService>();
-builder.Services.AddScoped<DeletarCategoriaService>();
-builder.Services.AddScoped<DeletarSetorService>();
+builder.Services.AddScoped<IDeletarProdutoService, DeletarProdutoService>();
+builder.Services.AddScoped<IDeletarCategoriaService, DeletarCategoriaService>();
+builder.Services.AddScoped<IDeletarSetorService, DeletarSetorService>();
 
-builder.Services.AddScoped<AtualizarProdutoService>();
-builder.Services.AddScoped<AtualizarCategoriaService>();
-builder.Services.AddScoped<AtualizarSetorService>();
+builder.Services.AddScoped<IAtualizarProdutoService, AtualizarProdutoService>();
+builder.Services.AddScoped<IAtualizarCategoriaService>();
+builder.Services.AddScoped<IAtualizarSetorService, AtualizarSetorService>();
 
 builder.Services.AddScoped<ProdutoVendidoNoCaixaService>();
 

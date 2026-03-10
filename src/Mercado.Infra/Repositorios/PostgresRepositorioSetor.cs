@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Mercado.Infra.Repositorios
 {
-    public class RepositorioSetor : IRepositorioSetor
+    public class PostgresRepositorioSetor : IRepositorioSetor
     {
         private MercadoContext _context;
 
-        public RepositorioSetor(MercadoContext context)
+        public PostgresRepositorioSetor(MercadoContext context)
         {
             _context = context;
         }
@@ -26,7 +26,7 @@ namespace Mercado.Infra.Repositorios
 
         public Setor BuscarPorId(Guid id)
         {
-            var setor = _context.Setores.Find(id);
+            Setor setor = _context.Setores.Find(id);
 
             if (setor == null) 
             {

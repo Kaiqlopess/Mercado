@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Mercado.Application.UseCase.ProdutoUseCase
 {
-    public class ObterProdutoService
+    public class ObterProdutoService : IObterProdutoService
     {
         private IRepositorioProduto _repositorioProduto;
         public ObterProdutoService(IRepositorioProduto repositorioProduto) 

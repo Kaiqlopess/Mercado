@@ -1,16 +1,10 @@
-﻿using Mercado.Application.Dtos;
-using Mercado.Application.Dtos.ProdutoDto;
+﻿using Mercado.Application.Dtos.ProdutoDto;
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mercado.Application.UseCase.ProdutoUseCase
 {
-    public class CriarProdutoService
+    public class CriarProdutoService : ICriarProdutoService
     {
         private IRepositorioProduto _repositorioProduto;
         private IRepositorioCategoria _repositorioCategoria;
@@ -21,20 +15,31 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
             this._repositorioCategoria = repositorioCategoria;
         }
 
-        public void Executar(CriarProdutoDto dto)
+        public ProdutoResponseDto Executar(CriarProdutoDto dto)
         {
-            var categoria = _repositorioCategoria.BuscarPorId(dto.CategoriaId);
+            try
+            {
+                Categoria categoria = _repositorioCategoria.BuscarPorId(dto.CategoriaId);
 
-            if(categoria == null) {
-                throw new Exception("Categoria nao existe");
+                if (categoria == null)
+                {
+                    throw new Exception("Categoria nao existe");
+                }
+
+                Produto produto = new Produto(dto.Nome, dto.Preco, dto.Quantidade, dto.Descricao, dto.Marca, dto.CodigoDeBarras, dto.Validade, dto.CategoriaId);
+
+                Produto resultado = _repositorioProduto.Salvar(produto);
+
+
+                ProdutoResponseDto response = new ProdutoResponseDto() { Id = resultado.Id, Nome = resultado.Nome, Preco = resultado.Preco };
+
+                return response;
             }
-
-
-
-
-            var produto = new Produto(dto.Nome, dto.Preco, dto.Quantidade, dto.Descricao, dto.Marca, dto.CodigoDeBarras, dto.Validade, dto.CategoriaId);
-
-            _repositorioProduto.Salvar(produto);
+            catch (Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
+            
         }
     }
 }

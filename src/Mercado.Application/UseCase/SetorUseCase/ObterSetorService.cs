@@ -1,16 +1,10 @@
-﻿using Mercado.Application.Dtos.CategoriaDto;
-using Mercado.Application.Dtos.SetorDto;
+﻿using Mercado.Application.Dtos.SetorDto;
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mercado.Application.UseCase.SetorUseCase
 {
-    public class ObterSetorService
+    public class ObterSetorService : IObterSetorService
     {
         private IRepositorioSetor _repositorioSetor;
         public ObterSetorService(IRepositorioSetor repositorioSetor) 
@@ -47,7 +41,6 @@ namespace Mercado.Application.UseCase.SetorUseCase
             });
 
             return dtos;
-
         }
     }
 }

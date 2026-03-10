@@ -4,10 +4,10 @@ using Mercado.Domain.Models;
 
 namespace Mercado.Application.UseCase.CategoriaUseCase
 {
-    public class IAtualizarCategoriaService
+    public class AtualizarCategoriaService
     {
         private IRepositorioCategoria _repositorioCategoria;
-        public IAtualizarCategoriaService(IRepositorioCategoria repositorioCategoria)
+        public AtualizarCategoriaService(IRepositorioCategoria repositorioCategoria)
         {
             this._repositorioCategoria = repositorioCategoria;
         }

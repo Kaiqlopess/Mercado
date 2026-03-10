@@ -8,12 +8,12 @@ namespace Mercado.Api.Controllers
     [Route("[controller]")]
     public class CategoriaController : ControllerBase
     {
-        private CriarCategoriaService _criarCategoriaService;
-        private ObterCategoriaService _obterCategoriaService;
-        private DeletarCategoriaService _deletarCategoriaService;
-        private AtualizarCategoriaService _atualizarCategoriaService;
+        private ICriarCategoriaService _criarCategoriaService;
+        private IObterCategoriaService _obterCategoriaService;
+        private IDeletarCategoriaService _deletarCategoriaService;
+        private IAtualizarCategoriaService _atualizarCategoriaService;
 
-        public CategoriaController(CriarCategoriaService criarCategoriaService, ObterCategoriaService obterCategoriaService, DeletarCategoriaService deletarCategoriaService, AtualizarCategoriaService atualizarCategoria)
+        public CategoriaController(ICriarCategoriaService criarCategoriaService, IObterCategoriaService obterCategoriaService, IDeletarCategoriaService deletarCategoriaService, IAtualizarCategoriaService atualizarCategoria)
         {
             this._criarCategoriaService = criarCategoriaService;   
             this._obterCategoriaService = obterCategoriaService;
@@ -33,8 +33,7 @@ namespace Mercado.Api.Controllers
             {
                 return BadRequest(new { mensagem = ex.Message});
             }
-
-            
+        
         }
 
         [HttpGet]

@@ -1,13 +1,9 @@
 ﻿using Mercado.Domain.Interfaces.Repositorio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Mercado.Domain.Models;
 
 namespace Mercado.Application.UseCase.SetorUseCase
 {
-    public class DeletarSetorService
+    public class DeletarSetorService : IDeletarSetorService
     {
         private IRepositorioSetor _repositorioSetor;
         private IRepositorioCategoria _repositorioCategoria;
@@ -19,14 +15,14 @@ namespace Mercado.Application.UseCase.SetorUseCase
 
         public void Executar(Guid id)
         {
-            var setor = _repositorioSetor.BuscarPorId(id);
+            Setor setor = _repositorioSetor.BuscarPorId(id);
 
             if(setor == null)
             {
                 throw new Exception("Setor nao encontrado");
             }
 
-            var categorias = _repositorioCategoria.BuscarPorSetorId(id);
+            IEnumerable<Categoria> categorias = _repositorioCategoria.BuscarPorSetorId(id);
 
             if (categorias.Any())
             {

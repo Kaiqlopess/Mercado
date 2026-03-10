@@ -9,7 +9,7 @@ namespace Mercado.Domain.Interfaces.Repositorio
 {
     public interface IRepositorioProduto
     {
-        void Salvar(Produto produto);
+        Produto Salvar(Produto produto);
         void Atualizar(Produto produto);
         void Deletar(Produto produto);
 

@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Mercado.Infra.Repositorios
 {
-    public class RepositorioCategoria : IRepositorioCategoria
+    public class PostgresRepositorioCategoria : IRepositorioCategoria
     {
         private MercadoContext _context;
 
-        public RepositorioCategoria(MercadoContext context)
+        public PostgresRepositorioCategoria(MercadoContext context)
         {
             this._context = context;
         }
