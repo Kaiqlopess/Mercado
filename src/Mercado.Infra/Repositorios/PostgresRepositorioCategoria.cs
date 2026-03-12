@@ -2,60 +2,102 @@
 using Mercado.Domain.Models;
 using Mercado.Infra.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mercado.Infra.Repositorios
 {
     public class PostgresRepositorioCategoria : IRepositorioCategoria
     {
-        private MercadoContext _context;
+        private readonly MercadoContext _context;
 
         public PostgresRepositorioCategoria(MercadoContext context)
         {
             this._context = context;
         }
-        public void Atualizar(Categoria categoria)
+        public Categoria Atualizar(Categoria categoria)
         {
-            _context.Categorias.Update(categoria);
-            _context.SaveChanges();
+            try
+            {
+                _context.Categorias.Update(categoria);
+                _context.SaveChanges();
+
+                return categoria;
+            }
+            catch (DbUpdateException ex) 
+            {
+                throw new Exception("Erro ao Atualizar no banco de dados", ex);
+            }
+            
         }
 
         public Categoria BuscarPorId(Guid id)
         {
-            Categoria categoria = _context.Categorias.Find(id);
-
-            if (categoria == null) 
-            {
-                return null;
+            try
+            {       
+                return _context.Categorias.Find(id);
             }
-
-            return categoria;
+            catch(Exception ex)
+            {
+                throw new Exception("Erro ao Retornar Categoria do banco de dados", ex);
+            }
+            
         }
 
         public IEnumerable<Categoria> BuscarTodos()
         {
-            return _context.Categorias.AsNoTracking().ToList();
+            try
+            {
+                return _context.Categorias.AsNoTracking().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Retornar Lista do banco de dados", ex);
+            }
+           
         }
 
         public IEnumerable<Categoria> BuscarPorSetorId(Guid id)
         {
-            return _context.Categorias.Where(c => c.SetorId == id).ToList();
+            try
+            {
+                return _context.Categorias.Where(c => c.SetorId == id).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Retornar Lista do banco de dados", ex);
+            }
+            
         }
 
-        public void Deletar(Categoria categoria)
+        public Categoria Deletar(Categoria categoria)
         {
-            _context.Categorias.Remove(categoria);
-            _context.SaveChanges();
+            try
+            {
+                _context.Categorias.Remove(categoria);
+                _context.SaveChanges();
+
+                return categoria;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new Exception("Erro ao Deletar no banco de dados", ex);
+            }
+            
         }
 
-        public void Salvar(Categoria categoria)
+        public Categoria Salvar(Categoria categoria)
         {
-            _context.Categorias.Add(categoria);
-            _context.SaveChanges();
+            try
+            {
+                _context.Categorias.Add(categoria);
+                _context.SaveChanges();
+
+                return categoria;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new Exception("Erro ao Salvar no banco de dados", ex);
+            }
+            
         }
     }
 }

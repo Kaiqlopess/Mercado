@@ -9,9 +9,9 @@ namespace Mercado.Domain.Interfaces.Repositorio
 {
     public interface IRepositorioCategoria
     {
-        void Salvar(Categoria categoria);
-        void Atualizar(Categoria categoria);
-        void Deletar(Categoria categoria);
+        Categoria Salvar(Categoria categoria);
+        Categoria Atualizar(Categoria categoria);
+        Categoria Deletar(Categoria categoria);
 
         Categoria BuscarPorId(Guid id);
 

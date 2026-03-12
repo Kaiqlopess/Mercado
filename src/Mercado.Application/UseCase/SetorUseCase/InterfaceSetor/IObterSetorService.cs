@@ -1,6 +1,6 @@
 ﻿using Mercado.Application.Dtos.SetorDto;
 
-namespace Mercado.Application.UseCase.SetorUseCase
+namespace Mercado.Application.UseCase.SetorUseCase.InterfaceSetor
 {
     public interface IObterSetorService
     {

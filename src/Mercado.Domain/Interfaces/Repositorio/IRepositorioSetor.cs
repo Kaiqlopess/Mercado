@@ -9,9 +9,9 @@ namespace Mercado.Domain.Interfaces.Repositorio
 {
     public interface IRepositorioSetor
     {
-        void Salvar(Setor setor);
-        void Atualizar(Setor setor);
-        void Deletar(Setor setor);
+        Setor Salvar(Setor setor);
+        Setor Atualizar(Setor setor);
+        Setor Deletar(Setor setor);
 
         Setor BuscarPorId(Guid id);
         IEnumerable<Setor> BuscarTodos();

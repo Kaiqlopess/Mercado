@@ -1,4 +1,5 @@
 ﻿using Mercado.Application.Dtos.SetorDto;
+using Mercado.Application.UseCase.SetorUseCase.InterfaceSetor;
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
 
@@ -6,24 +7,36 @@ namespace Mercado.Application.UseCase.SetorUseCase
 {
     public class AtualizarSetorService : IAtualizarSetorService
     {
-        private IRepositorioSetor _repositorioSetor;
+        private readonly IRepositorioSetor _repositorioSetor;
         public AtualizarSetorService(IRepositorioSetor repositorioSetor)
         {
             this._repositorioSetor = repositorioSetor;
         }
 
-        public void Executar(Guid id, AtualizarSetorDto dto)
+        public SetorResponseDto Executar(Guid id, AtualizarSetorDto dto)
         {
-            Setor setor = _repositorioSetor.BuscarPorId(id);
-
-            if (setor == null)
+            try
             {
-                throw new Exception("Setor nao encontrado");
+                Setor setor = _repositorioSetor.BuscarPorId(id);
+
+                if (setor == null)
+                {
+                    throw new Exception("Setor nao encontrado");
+                }
+
+                setor.Modificar(dto.Nome, dto.Descricao);
+
+                Setor setorAtualizado = _repositorioSetor.Atualizar(setor);
+
+                SetorResponseDto response = new SetorResponseDto() { Id = setorAtualizado.Id, Nome = setorAtualizado.Nome };
+
+                return response;
             }
-
-            setor.Modificar(dto.Nome, dto.Descricao);
-
-            _repositorioSetor.Atualizar(setor);
+            catch (Exception ex) 
+            {
+                throw new Exception("Erro ao executar a operaçao de Atualizar", ex);
+            }
+            
         }
     }
 }

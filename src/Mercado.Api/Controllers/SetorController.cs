@@ -1,5 +1,5 @@
 ﻿using Mercado.Application.Dtos.SetorDto;
-using Mercado.Application.UseCase.SetorUseCase;
+using Mercado.Application.UseCase.SetorUseCase.InterfaceSetor;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Mercado.Api.Controllers
@@ -8,10 +8,10 @@ namespace Mercado.Api.Controllers
     [Route("[controller]")]
     public class SetorController : ControllerBase
     {
-        private ICriarSetorService _setorService;
-        private IObterSetorService _obterService;
-        private IDeletarSetorService _deleteService;
-        private IAtualizarSetorService _atualizarSetor;
+        private readonly ICriarSetorService _setorService;
+        private readonly IObterSetorService _obterService;
+        private readonly IDeletarSetorService _deleteService;
+        private readonly IAtualizarSetorService _atualizarSetor;
         public SetorController(ICriarSetorService setorService, IObterSetorService obterService, IDeletarSetorService deleteService, IAtualizarSetorService atualizarSetor)
         {
             this._setorService = setorService;
@@ -25,8 +25,8 @@ namespace Mercado.Api.Controllers
         {
             try
             {
-                _setorService.Executar(dto);
-                return Ok(dto);
+                SetorResponseDto response = _setorService.Executar(dto);
+                return Ok(response);
             }
             catch (Exception ex) 
             {
@@ -52,15 +52,13 @@ namespace Mercado.Api.Controllers
         {
             try
             {
-                _deleteService.Executar(id);
-                return Ok();
+                SetorResponseDto response = _deleteService.Executar(id);
+                return Ok(response);
             }
             catch (Exception ex) 
             {
                 return BadRequest(new { mensagem = ex.Message });  
             }
-                
-
            
         }
 
@@ -70,8 +68,8 @@ namespace Mercado.Api.Controllers
 
             try
             {
-                _atualizarSetor.Executar(id, dto);
-                return Ok(dto);
+                SetorResponseDto response = _atualizarSetor.Executar(id, dto);
+                return Ok(response);
             }
             catch(Exception ex)
             {

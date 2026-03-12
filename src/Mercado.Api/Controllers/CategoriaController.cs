@@ -1,5 +1,5 @@
 ﻿using Mercado.Application.Dtos.CategoriaDto;
-using Mercado.Application.UseCase.CategoriaUseCase;
+using Mercado.Application.UseCase.CategoriaUseCase.InterfaceCategoria;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Mercado.Api.Controllers
@@ -8,10 +8,10 @@ namespace Mercado.Api.Controllers
     [Route("[controller]")]
     public class CategoriaController : ControllerBase
     {
-        private ICriarCategoriaService _criarCategoriaService;
-        private IObterCategoriaService _obterCategoriaService;
-        private IDeletarCategoriaService _deletarCategoriaService;
-        private IAtualizarCategoriaService _atualizarCategoriaService;
+        private readonly ICriarCategoriaService _criarCategoriaService;
+        private readonly IObterCategoriaService _obterCategoriaService;
+        private readonly IDeletarCategoriaService _deletarCategoriaService;
+        private readonly IAtualizarCategoriaService _atualizarCategoriaService;
 
         public CategoriaController(ICriarCategoriaService criarCategoriaService, IObterCategoriaService obterCategoriaService, IDeletarCategoriaService deletarCategoriaService, IAtualizarCategoriaService atualizarCategoria)
         {
@@ -26,8 +26,8 @@ namespace Mercado.Api.Controllers
         {
             try
             {
-                _criarCategoriaService.Executar(dto);
-                return Ok(dto);
+                CategoriaResponseDto response = _criarCategoriaService.Executar(dto);
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -55,8 +55,8 @@ namespace Mercado.Api.Controllers
         {
             try
             {
-                _deletarCategoriaService.Executar(id);
-                return Ok();
+                CategoriaResponseDto response = _deletarCategoriaService.Executar(id);
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -70,8 +70,8 @@ namespace Mercado.Api.Controllers
         {
             try
             {
-                _atualizarCategoriaService.Executar(id, dto);
-                return Ok();
+                CategoriaResponseDto response = _atualizarCategoriaService.Executar(id, dto);
+                return Ok(response);
             }
             catch (Exception ex)
             {

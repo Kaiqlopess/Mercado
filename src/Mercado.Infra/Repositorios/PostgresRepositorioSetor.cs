@@ -2,55 +2,89 @@
 using Mercado.Domain.Models;
 using Mercado.Infra.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mercado.Infra.Repositorios
 {
     public class PostgresRepositorioSetor : IRepositorioSetor
     {
-        private MercadoContext _context;
+        private readonly MercadoContext _context;
 
         public PostgresRepositorioSetor(MercadoContext context)
         {
-            _context = context;
+            this._context = context;
         }
-        public void Atualizar(Setor setor)
+        public Setor Atualizar(Setor setor)
         {
-            _context.Setores.Update(setor);
-            _context.SaveChanges();
+            try
+            {
+                _context.Setores.Update(setor);
+                _context.SaveChanges();
+
+                return setor;
+            }
+            catch (DbUpdateException ex) 
+            {
+                throw new Exception("Erro ao Atualizar no banco de dados", ex);
+            }
+            
         }
 
         public Setor BuscarPorId(Guid id)
         {
-            Setor setor = _context.Setores.Find(id);
-
-            if (setor == null) 
+            try
             {
-                return null;
+                return _context.Setores.Find(id);
             }
-
-            return setor;
+            catch (Exception ex) 
+            {
+                throw new Exception("Erro ao retornar Setor", ex);
+            }
+            
         }
 
         public IEnumerable<Setor> BuscarTodos()
         {
-            return _context.Setores.ToList();
+            try
+            {
+                return _context.Setores.ToList();
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception("Erro ao retornat lista de Setor", ex);
+            }
+            
         }
 
-        public void Deletar(Setor setor)
+        public Setor Deletar(Setor setor)
         {
-            _context.Setores.Remove(setor);
-            _context.SaveChanges();
+            try
+            {
+                _context.Setores.Remove(setor);
+                _context.SaveChanges();
+
+                return setor;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new Exception("Erro ao Deletar no banco de dados", ex);
+            }
+           
         }
 
-        public void Salvar(Setor setor)
+        public Setor Salvar(Setor setor)
         {
-            _context.Setores.Add(setor);
-            _context.SaveChanges();
+            try
+            {
+                _context.Setores.Add(setor);
+                _context.SaveChanges();
+
+                return setor;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new Exception("Erro ao Salvar no banco de dados", ex);
+            }
+            
         }
     }
 }

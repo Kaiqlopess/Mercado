@@ -1,12 +1,13 @@
 ﻿using Mercado.Application.Dtos.CategoriaDto;
+using Mercado.Application.UseCase.CategoriaUseCase.InterfaceCategoria;
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
 
 namespace Mercado.Application.UseCase.CategoriaUseCase
 {
-    public class ObterCategoriaService
+    public class ObterCategoriaService : IObterCategoriaService
     {
-        private IRepositorioCategoria _repositorioCategoria;
+        private readonly IRepositorioCategoria _repositorioCategoria;
         public ObterCategoriaService(IRepositorioCategoria repositorioCategoria) 
         {
             this._repositorioCategoria = repositorioCategoria;
@@ -14,47 +15,71 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
 
         public ObterCategoriaDto ObterCategoriasPorId(Guid id)
         {
-            Categoria categoria = _repositorioCategoria.BuscarPorId(id);
-
-            if (categoria == null)
+            try
             {
-                throw new Exception("Categoria nao existe");
+                Categoria categoria = _repositorioCategoria.BuscarPorId(id);
+
+                if (categoria == null)
+                {
+                    throw new Exception("Categoria nao existe");
+                }
+
+                ObterCategoriaDto dto = new ObterCategoriaDto
+                {
+                    Id = categoria.Id,
+                    Nome = categoria.Nome,
+                };
+
+                return dto;
             }
-
-            ObterCategoriaDto dto = new ObterCategoriaDto
+            catch (Exception ex) 
             {
-                Id = categoria.Id,
-                Nome = categoria.Nome,
-            };
-
-            return dto;
+                throw new Exception("Erro ao realizar a operaçao de retonrar a categoria");
+            }
+            
         }
 
         public IEnumerable<ObterCategoriaDto> ObterTodasAsCategorias()
         {
-            IEnumerable<Categoria> categorias = _repositorioCategoria.BuscarTodos();
-
-            IEnumerable<ObterCategoriaDto> dtos = categorias.Select(c => new ObterCategoriaDto
+            try
             {
-                Id = c.Id,
-                Nome = c.Nome,
-            });
+                IEnumerable<Categoria> categorias = _repositorioCategoria.BuscarTodos();
 
-            return dtos;
+                IEnumerable<ObterCategoriaDto> dtos = categorias.Select(c => new ObterCategoriaDto
+                {
+                    Id = c.Id,
+                    Nome = c.Nome,
+                });
+
+                return dtos;
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception("Erro ao realizar a operaçao de Listar", ex);
+            }
+            
 
         }
 
         public IEnumerable<ObterCategoriaDto> ObterTodasAsCategoriasPorSetorId(Guid id)
         {
-            IEnumerable<Categoria> categorias = _repositorioCategoria.BuscarPorSetorId(id);
-
-            IEnumerable<ObterCategoriaDto> dtos = categorias.Select(c => new ObterCategoriaDto
+            try
             {
-                Id = c.Id,
-                Nome = c.Nome,
-            });
+                IEnumerable<Categoria> categorias = _repositorioCategoria.BuscarPorSetorId(id);
 
-            return dtos;
+                IEnumerable<ObterCategoriaDto> dtos = categorias.Select(c => new ObterCategoriaDto
+                {
+                    Id = c.Id,
+                    Nome = c.Nome,
+                });
+
+                return dtos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao realizar a operaçao de listar");
+            }
+            
         }
 
 

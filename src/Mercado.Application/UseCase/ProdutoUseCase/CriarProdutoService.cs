@@ -1,4 +1,5 @@
 ﻿using Mercado.Application.Dtos.ProdutoDto;
+using Mercado.Application.UseCase.ProdutoUseCase.InterfaceProduto;
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
 
@@ -6,8 +7,8 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 {
     public class CriarProdutoService : ICriarProdutoService
     {
-        private IRepositorioProduto _repositorioProduto;
-        private IRepositorioCategoria _repositorioCategoria;
+        private readonly IRepositorioProduto _repositorioProduto;
+        private readonly IRepositorioCategoria _repositorioCategoria;
 
         public CriarProdutoService(IRepositorioProduto repositorioProduto, IRepositorioCategoria repositorioCategoria)
         {
@@ -28,16 +29,15 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 
                 Produto produto = new Produto(dto.Nome, dto.Preco, dto.Quantidade, dto.Descricao, dto.Marca, dto.CodigoDeBarras, dto.Validade, dto.CategoriaId);
 
-                Produto resultado = _repositorioProduto.Salvar(produto);
+                Produto produtoCriado = _repositorioProduto.Salvar(produto);
 
-
-                ProdutoResponseDto response = new ProdutoResponseDto() { Id = resultado.Id, Nome = resultado.Nome, Preco = resultado.Preco };
+                ProdutoResponseDto response = new ProdutoResponseDto() { Id = produtoCriado.Id, Nome = produtoCriado.Nome, Preco = produtoCriado.Preco };
 
                 return response;
             }
             catch (Exception ex) 
             {
-                throw new Exception(ex.Message);
+                throw new Exception("Erro ao criar produto", ex);
             }
             
         }

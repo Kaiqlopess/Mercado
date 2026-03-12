@@ -1,5 +1,5 @@
 ﻿using Mercado.Application.Dtos.ProdutoDto;
-using Mercado.Application.UseCase.ProdutoUseCase;
+using Mercado.Application.UseCase.ProdutoUseCase.InterfaceProduto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Mercado.Api.Controllers
@@ -8,11 +8,11 @@ namespace Mercado.Api.Controllers
     [Route("[controller]")]
     public class ProdutoController : ControllerBase
     {
-        private ICriarProdutoService _criarService;
-        private IObterProdutoService _obterService;
-        private IDeletarProdutoService _deletarService;
-        private IAtualizarProdutoService _atualizarService;
-        private IProdutoVendidoNoCaixaService _produtoVendidoNoCaixa;
+        private readonly ICriarProdutoService _criarService;
+        private readonly IObterProdutoService _obterService;
+        private readonly IDeletarProdutoService _deletarService;
+        private readonly IAtualizarProdutoService _atualizarService;
+        private readonly IProdutoVendidoNoCaixaService _produtoVendidoNoCaixa;
         public ProdutoController(ICriarProdutoService criarService, IObterProdutoService obterService, IDeletarProdutoService deletarService, IAtualizarProdutoService atualizarService, IProdutoVendidoNoCaixaService produtoVendidoNoCaixa) 
         {
             this._criarService = criarService;
@@ -70,8 +70,8 @@ namespace Mercado.Api.Controllers
         {
             try
             {
-                _deletarService.Executar(id);
-                return Ok();
+                ProdutoResponseDto response = _deletarService.Executar(id);
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -85,8 +85,8 @@ namespace Mercado.Api.Controllers
         {
             try
             {
-                _atualizarService.Executar(id, dto);
-                return Ok();
+                ProdutoResponseDto response = _atualizarService.Executar(id, dto);
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -99,9 +99,8 @@ namespace Mercado.Api.Controllers
         {
             try
             {
-                _produtoVendidoNoCaixa.Executar(dto.CodigoDeBarras, dto.Quantidade);
-
-                return Ok();
+                ProdutoResponseDto response = _produtoVendidoNoCaixa.Executar(dto.CodigoDeBarras, dto.Quantidade);
+                return Ok(response);
             }
             catch (Exception ex)
             {

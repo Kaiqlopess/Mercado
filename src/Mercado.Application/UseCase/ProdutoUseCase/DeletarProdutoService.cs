@@ -1,26 +1,40 @@
-﻿using Mercado.Domain.Interfaces.Repositorio;
+﻿using Mercado.Application.Dtos.ProdutoDto;
+using Mercado.Application.UseCase.ProdutoUseCase.InterfaceProduto;
+using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
 
 namespace Mercado.Application.UseCase.ProdutoUseCase
 {
     public class DeletarProdutoService : IDeletarProdutoService
     {
-        private IRepositorioProduto _repositorioProduto;
+        private readonly IRepositorioProduto _repositorioProduto;
         public DeletarProdutoService(IRepositorioProduto repositorioProduto) 
         {
             this._repositorioProduto = repositorioProduto;
         }
 
-        public void Executar(Guid id)
+        public ProdutoResponseDto Executar(Guid id)
         {
-            Produto produto = _repositorioProduto.BuscarPorId(id);
-
-            if(produto == null)
+            try
             {
-                throw new Exception("Produto nao encontrado"); 
-            }
+                Produto produto = _repositorioProduto.BuscarPorId(id);
 
-            _repositorioProduto.Deletar(produto);
+                if (produto == null)
+                {
+                    throw new Exception("Produto nao encontrado");
+                }
+
+                Produto produtoDeletado = _repositorioProduto.Deletar(produto);
+
+                ProdutoResponseDto reponse = new ProdutoResponseDto() { Id = produtoDeletado.Id, Nome = produtoDeletado.Nome, Preco = produtoDeletado.Preco};
+
+                return reponse;
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception("Erro ao executar a operaçao de Deletar!", ex);
+            }
+            
         }
     }
 }

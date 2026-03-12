@@ -33,7 +33,7 @@
         }
 
 
-        public void Modificar(decimal preco, int quantidade)
+        public void ModificarParaAtualizar(decimal preco, int quantidade)
         {
             this.Preco = preco;
             this.Quantidade = quantidade;

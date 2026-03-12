@@ -2,7 +2,7 @@
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
 
-namespace Mercado.Application.UseCase.CategoriaUseCase
+namespace Mercado.Application.UseCase.CategoriaUseCase.InterfaceCategoria
 {
     public interface IObterCategoriaService
     {

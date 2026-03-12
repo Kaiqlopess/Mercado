@@ -1,29 +1,43 @@
 ﻿using Mercado.Application.Dtos.CategoriaDto;
+using Mercado.Application.UseCase.CategoriaUseCase.InterfaceCategoria;
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
 
 namespace Mercado.Application.UseCase.CategoriaUseCase
 {
-    public class IAtualizarCategoriaService
+    public class AtualizarCategoriaService : IAtualizarCategoriaService
     {
-        private IRepositorioCategoria _repositorioCategoria;
-        public IAtualizarCategoriaService(IRepositorioCategoria repositorioCategoria)
+        private readonly IRepositorioCategoria _repositorioCategoria;
+        public AtualizarCategoriaService(IRepositorioCategoria repositorioCategoria)
         {
             this._repositorioCategoria = repositorioCategoria;
         }
 
-        public void Executar(Guid id, AtualizarCategoriaDto dto)
+        public CategoriaResponseDto Executar(Guid id, AtualizarCategoriaDto dto)
         {
-            Categoria categoria = _repositorioCategoria.BuscarPorId(id);
-
-            if(categoria == null)
+            try
             {
-                throw new Exception("Categoria nao encontrado");
+                Categoria categoria = _repositorioCategoria.BuscarPorId(id);
+
+                if (categoria == null)
+                {
+                    throw new Exception("Categoria nao encontrado");
+                }
+
+                categoria.Modificar(dto.Nome, dto.Descricao);
+
+                Categoria categoriaAtualizada = _repositorioCategoria.Atualizar(categoria);
+
+                CategoriaResponseDto response = new CategoriaResponseDto() { Id = categoriaAtualizada.Id, Nome = categoriaAtualizada.Nome};
+
+                return response;
             }
+            catch (Exception ex) 
+            {
+                throw new Exception("Erro ao realizar a operaçao Atualizar!", ex);
 
-            categoria.Modificar(dto.Nome, dto.Descricao);
-
-            _repositorioCategoria.Atualizar(categoria);
+            }
+            
         }
                 
     }

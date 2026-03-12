@@ -1,7 +1,4 @@
-﻿
-
-
-
+﻿using Mercado.Application.Dtos.SetorDto;
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
 using System;
@@ -10,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mercado.Application.UseCase.ProdutoUseCase
+namespace Mercado.Application.UseCase.SetorUseCase.InterfaceSetor
 {
-    public interface IProdutoVendidoNoCaixaService
+    public interface IDeletarSetorService
     {
-        public void Executar(long codigoDeBarras, int quantidade);
-
+        public SetorResponseDto Executar(Guid id);
     }
 }

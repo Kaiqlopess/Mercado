@@ -1,61 +1,99 @@
 ﻿using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
 using Mercado.Infra.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Mercado.Infra.Repositorios
 {
     public class PostgresRepositorioProduto : IRepositorioProduto
     {
-        private MercadoContext _context;
+        private readonly MercadoContext _context;
 
         public PostgresRepositorioProduto(MercadoContext context)
         {
             this._context = context;
         }
-        public void Atualizar(Produto produto)
+        public Produto Atualizar(Produto produto)
         {
-            _context.Produtos.Update(produto);
-            _context.SaveChanges();
+            try
+            {
+                _context.Produtos.Update(produto);
+                _context.SaveChanges();
+
+                return produto;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new Exception("Erro ao Atualizar no banco de dados", ex);
+            }
         }
 
         public IEnumerable<Produto> BuscarPorCategoriaId(Guid id)
         {
-            return _context.Produtos.Where(p => p.CategoriaId == id).ToList();
+            try
+            {
+                return _context.Produtos.Where(p => p.CategoriaId == id).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Retornar lista do banco de dados", ex);
+            }
+            
         }
 
         public Produto BuscarPorCodigoDeBarras(long codigoDeBarras)
         {
-            Produto produto = _context.Produtos.FirstOrDefault(p => p.CodigoDeBarras == codigoDeBarras);
 
-            if(produto == null)
+            try
             {
-                return null;
+                return _context.Produtos.FirstOrDefault(p => p.CodigoDeBarras == codigoDeBarras);
             }
-
-            return produto;
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Retornar produto do banco de dados", ex);
+            }
+            
         }
 
         public Produto BuscarPorId(Guid id)
         {
-            Produto produto = _context.Produtos.Find(id);
-
-            if (produto == null)
+            try
             {
-                return null;
+                return _context.Produtos.Find(id);
             }
-
-            return produto;
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Retornar produto do banco de dados");
+            }
+            
         }
 
         public IEnumerable<Produto> BuscarTodos()
         {
-            return _context.Produtos.ToList();
+            try
+            {
+                return _context.Produtos.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Retornar lista do banco de dados");
+            }
+            
         }
 
-        public void Deletar(Produto produto)
+        public Produto Deletar(Produto produto)
         {
-            _context.Produtos.Remove(produto);
-            _context.SaveChanges();
+            try
+            {
+                _context.Produtos.Remove(produto);
+                _context.SaveChanges();
+
+                return produto;
+            }
+            catch (DbUpdateException ex) 
+            {
+                throw new Exception("Erro ao Deletar no banco de dados", ex);
+            }
         }
 
         public Produto Salvar(Produto produto)
@@ -65,11 +103,14 @@ namespace Mercado.Infra.Repositorios
                 _context.Produtos.Add(produto);
                 _context.SaveChanges();
 
-                return produto;
+               return produto;
             }
-            catch (Exception ex) {
-                throw new Exception($"{ex.Message}, Erro ao salvar no banco de dados");
+            catch (DbUpdateException ex) 
+            {
+                throw new Exception("Erro ao salvar no banco de dados", ex);
             }
         }
+
+       
     }
 }

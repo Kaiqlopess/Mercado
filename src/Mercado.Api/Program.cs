@@ -1,6 +1,9 @@
 using Mercado.Application.UseCase.CategoriaUseCase;
+using Mercado.Application.UseCase.CategoriaUseCase.InterfaceCategoria;
 using Mercado.Application.UseCase.ProdutoUseCase;
+using Mercado.Application.UseCase.ProdutoUseCase.InterfaceProduto;
 using Mercado.Application.UseCase.SetorUseCase;
+using Mercado.Application.UseCase.SetorUseCase.InterfaceSetor;
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Infra.Context;
 using Mercado.Infra.Repositorios;
@@ -31,10 +34,10 @@ builder.Services.AddScoped<IDeletarCategoriaService, DeletarCategoriaService>();
 builder.Services.AddScoped<IDeletarSetorService, DeletarSetorService>();
 
 builder.Services.AddScoped<IAtualizarProdutoService, AtualizarProdutoService>();
-builder.Services.AddScoped<IAtualizarCategoriaService>();
+builder.Services.AddScoped<IAtualizarCategoriaService, AtualizarCategoriaService>();
 builder.Services.AddScoped<IAtualizarSetorService, AtualizarSetorService>();
 
-builder.Services.AddScoped<ProdutoVendidoNoCaixaService>();
+builder.Services.AddScoped<IProdutoVendidoNoCaixaService, ProdutoVendidoNoCaixaService>();
 
 
 builder.Services.AddControllers();

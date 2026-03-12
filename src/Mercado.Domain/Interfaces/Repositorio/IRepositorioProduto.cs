@@ -10,8 +10,8 @@ namespace Mercado.Domain.Interfaces.Repositorio
     public interface IRepositorioProduto
     {
         Produto Salvar(Produto produto);
-        void Atualizar(Produto produto);
-        void Deletar(Produto produto);
+        Produto Atualizar(Produto produto);
+        Produto Deletar(Produto produto);
 
         Produto BuscarPorId(Guid id);
         Produto BuscarPorCodigoDeBarras(long codigoDeBarras);

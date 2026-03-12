@@ -1,4 +1,5 @@
 ﻿using Mercado.Application.Dtos.SetorDto;
+using Mercado.Application.UseCase.SetorUseCase.InterfaceSetor;
 using Mercado.Domain.Interfaces.Repositorio;
 using Mercado.Domain.Models;
 
@@ -12,11 +13,23 @@ namespace Mercado.Application.UseCase.SetorUseCase
             this._repositorio = repositorio;           
         }
 
-        public void Executar(CriarSetorDto dto)
+        public SetorResponseDto Executar(CriarSetorDto dto)
         {
-            Setor setor = new Setor(dto.Nome, dto.Descricao);
+            try
+            {
+                Setor setor = new Setor(dto.Nome, dto.Descricao);
 
-            _repositorio.Salvar(setor);
+                Setor setorCriado = _repositorio.Salvar(setor);
+
+                SetorResponseDto response = new SetorResponseDto() { Id = setorCriado.Id, Nome = setorCriado.Nome};
+
+                return response;
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception("Erro ao realizar a operaçao de Inserir!", ex);
+            }
+           
         }
     }
 }
