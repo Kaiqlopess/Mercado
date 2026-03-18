@@ -10,5 +10,7 @@ namespace Mercado.Application.Dtos.SetorDto
     {
         public Guid Id { get; set; }
         public string Nome { get; set; }
+        public string Descriçao {  get; set; }
+
     }
 }

@@ -21,7 +21,7 @@ namespace Mercado.Application.UseCase.SetorUseCase
 
                 Setor setorCriado = _repositorio.Salvar(setor);
 
-                SetorResponseDto response = new SetorResponseDto() { Id = setorCriado.Id, Nome = setorCriado.Nome};
+                SetorResponseDto response = new SetorResponseDto() { Id = setorCriado.Id, Nome = setorCriado.Nome, Descriçao = setorCriado.Descricao};
 
                 return response;
             }

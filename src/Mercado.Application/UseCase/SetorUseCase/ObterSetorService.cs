@@ -28,6 +28,7 @@ namespace Mercado.Application.UseCase.SetorUseCase
                 {
                     Nome = setor.Nome,
                     Id = setor.Id,
+                    Descricao = setor.Descricao
                 };
 
                 return dto;
@@ -49,6 +50,7 @@ namespace Mercado.Application.UseCase.SetorUseCase
                 {
                     Nome = s.Nome,
                     Id = s.Id,
+                    Descricao = s.Descricao
                 });
 
                 return dtos;

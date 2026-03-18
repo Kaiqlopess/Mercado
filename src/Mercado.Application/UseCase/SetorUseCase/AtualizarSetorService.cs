@@ -28,7 +28,7 @@ namespace Mercado.Application.UseCase.SetorUseCase
 
                 Setor setorAtualizado = _repositorioSetor.Atualizar(setor);
 
-                SetorResponseDto response = new SetorResponseDto() { Id = setorAtualizado.Id, Nome = setorAtualizado.Nome };
+                SetorResponseDto response = new SetorResponseDto() { Id = setorAtualizado.Id, Nome = setorAtualizado.Nome, Descriçao = setorAtualizado.Descricao};
 
                 return response;
             }

@@ -35,7 +35,7 @@ namespace Mercado.Application.UseCase.SetorUseCase
 
                 Setor setorDeletado = _repositorioSetor.Deletar(setor);
 
-                SetorResponseDto response = new SetorResponseDto() { Id = setorDeletado.Id, Nome = setorDeletado.Nome };
+                SetorResponseDto response = new SetorResponseDto() { Id = setorDeletado.Id, Nome = setorDeletado.Nome, Descriçao = setorDeletado.Descricao};
 
                 return response;
             }
