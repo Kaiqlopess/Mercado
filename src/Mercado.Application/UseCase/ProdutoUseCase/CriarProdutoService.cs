@@ -16,11 +16,11 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
             this._repositorioCategoria = repositorioCategoria;
         }
 
-        public ProdutoResponseDto Executar(CriarProdutoDto dto)
+        public async Task<ProdutoResponseDto> Executar(CriarProdutoDto dto)
         {
             try
             {
-                Categoria categoria = _repositorioCategoria.BuscarPorId(dto.CategoriaId);
+                Categoria categoria = await _repositorioCategoria.BuscarPorId(dto.CategoriaId);
 
                 if (categoria == null)
                 {
@@ -29,7 +29,7 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 
                 Produto produto = new Produto(dto.Nome, dto.Preco, dto.Quantidade, dto.Descricao, dto.Marca, dto.CodigoDeBarras, dto.Validade, dto.CategoriaId);
 
-                Produto produtoCriado = _repositorioProduto.Salvar(produto);
+                Produto produtoCriado = await _repositorioProduto.Salvar(produto);
 
                 ProdutoResponseDto response = new ProdutoResponseDto() { Id = produtoCriado.Id, Nome = produtoCriado.Nome, Preco = produtoCriado.Preco };
 

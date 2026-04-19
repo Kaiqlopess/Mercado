@@ -9,11 +9,11 @@ namespace Mercado.Domain.Interfaces.Repositorio
 {
     public interface IRepositorioSetor
     {
-        Setor Salvar(Setor setor);
-        Setor Atualizar(Setor setor);
-        Setor Deletar(Setor setor);
+        Task<Setor> Salvar(Setor setor);
+        Task<Setor> Atualizar(Setor setor);
+        Task<Setor> Deletar(Setor setor);
 
-        Setor BuscarPorId(Guid id);
-        IEnumerable<Setor> BuscarTodos();
+        Task<Setor> BuscarPorId(Guid id);
+        Task<IEnumerable<Setor>> BuscarTodos();
     }
 }

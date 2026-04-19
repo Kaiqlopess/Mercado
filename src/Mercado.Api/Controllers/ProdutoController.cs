@@ -23,11 +23,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CriarProduto([FromBody] CriarProdutoDto dto) 
+        public async Task<IActionResult> CriarProduto([FromBody] CriarProdutoDto dto) 
         {
             try
             {
-                ProdutoResponseDto produto = _criarService.Executar(dto);    
+                ProdutoResponseDto produto = await _criarService.Executar(dto);    
                 return Ok(produto);
             }
             catch (Exception ex) 
@@ -38,11 +38,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult ListarTodosOsProduto()
+        public async Task<IActionResult> ListarTodosOsProduto()
         {
             try
             {
-                return Ok(_obterService.ObterTodosOsProdutos());
+                return Ok(await _obterService.ObterTodosOsProdutos());
             }
             catch (Exception ex) 
             {
@@ -52,11 +52,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpGet("categoria/{id}")]
-        public IActionResult ListarProdutosPorCategoriaId(Guid id)
+        public async Task<IActionResult> ListarProdutosPorCategoriaId(Guid id)
         {
             try
             {
-                return Ok(_obterService.ObterProdutosPorCategoriaId(id));
+                return Ok(await _obterService.ObterProdutosPorCategoriaId(id));
             }
             catch (Exception ex)
             {
@@ -66,11 +66,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeletarProduto(Guid id) 
+        public async Task<IActionResult> DeletarProduto(Guid id) 
         {
             try
             {
-                ProdutoResponseDto response = _deletarService.Executar(id);
+                ProdutoResponseDto response = await _deletarService.Executar(id);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -81,11 +81,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizarProduto(Guid id, [FromBody] AtualizarProdutoDto dto)
+        public async Task<IActionResult> AtualizarProduto(Guid id, [FromBody] AtualizarProdutoDto dto)
         {
             try
             {
-                ProdutoResponseDto response = _atualizarService.Executar(id, dto);
+                ProdutoResponseDto response = await _atualizarService.Executar(id, dto);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -95,11 +95,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpPost("vender")]
-        public IActionResult ProdutoVendido([FromBody] ProdutoVendidoDto dto)
+        public async Task<IActionResult> ProdutoVendido([FromBody] ProdutoVendidoDto dto)
         {
             try
             {
-                ProdutoResponseDto response = _produtoVendidoNoCaixa.Executar(dto.CodigoDeBarras, dto.Quantidade);
+                ProdutoResponseDto response = await _produtoVendidoNoCaixa.Executar(dto.CodigoDeBarras, dto.Quantidade);
                 return Ok(response);
             }
             catch (Exception ex)

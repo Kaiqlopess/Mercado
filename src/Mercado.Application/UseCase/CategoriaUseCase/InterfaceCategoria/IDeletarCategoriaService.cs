@@ -6,6 +6,6 @@ namespace Mercado.Application.UseCase.CategoriaUseCase.InterfaceCategoria
 {
     public interface IDeletarCategoriaService
     {
-        public CategoriaResponseDto Executar(Guid id);
+        public Task<CategoriaResponseDto> Executar(Guid id);
     }
 }

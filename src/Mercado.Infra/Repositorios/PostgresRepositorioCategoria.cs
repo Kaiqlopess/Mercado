@@ -13,12 +13,12 @@ namespace Mercado.Infra.Repositorios
         {
             this._context = context;
         }
-        public Categoria Atualizar(Categoria categoria)
+        public async Task<Categoria>  Atualizar(Categoria categoria)
         {
             try
             {
                 _context.Categorias.Update(categoria);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                 return categoria;
             }
@@ -29,11 +29,11 @@ namespace Mercado.Infra.Repositorios
             
         }
 
-        public Categoria BuscarPorId(Guid id)
+        public async Task<Categoria> BuscarPorId(Guid id)
         {
             try
             {       
-                return _context.Categorias.Find(id);
+                return await _context.Categorias.Include(c => c.Setor).FirstOrDefaultAsync(c => c.Id == id);
             }
             catch(Exception ex)
             {
@@ -42,11 +42,11 @@ namespace Mercado.Infra.Repositorios
             
         }
 
-        public IEnumerable<Categoria> BuscarTodos()
+        public async Task<IEnumerable<Categoria>> BuscarTodos()
         {
             try
             {
-                return _context.Categorias.AsNoTracking().ToList();
+                return await _context.Categorias.Include(c => c.Setor).AsNoTracking().ToListAsync();
             }
             catch (Exception ex)
             {
@@ -55,11 +55,11 @@ namespace Mercado.Infra.Repositorios
            
         }
 
-        public IEnumerable<Categoria> BuscarPorSetorId(Guid id)
+        public async Task<IEnumerable<Categoria>> BuscarPorSetorId(Guid id)
         {
             try
             {
-                return _context.Categorias.Where(c => c.SetorId == id).ToList();
+                return await _context.Categorias.Where(c => c.SetorId == id).Include(c => c.Setor).ToListAsync();
             }
             catch (Exception ex)
             {
@@ -68,12 +68,12 @@ namespace Mercado.Infra.Repositorios
             
         }
 
-        public Categoria Deletar(Categoria categoria)
+        public async Task<Categoria> Deletar(Categoria categoria)
         {
             try
             {
                 _context.Categorias.Remove(categoria);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                 return categoria;
             }
@@ -84,12 +84,12 @@ namespace Mercado.Infra.Repositorios
             
         }
 
-        public Categoria Salvar(Categoria categoria)
+        public async Task<Categoria> Salvar(Categoria categoria)
         {
             try
             {
                 _context.Categorias.Add(categoria);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                 return categoria;
             }

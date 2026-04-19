@@ -4,7 +4,7 @@ namespace Mercado.Application.UseCase.SetorUseCase.InterfaceSetor
 {
     public interface IObterSetorService
     {
-        public ObterSetorDto ObterTodosOsSetoresPorId(Guid id);
-        public IEnumerable<ObterSetorDto> ObterTodosOsSetores();
+        public Task<ObterSetorDto> ObterTodosOsSetoresPorId(Guid id);
+        public Task<IEnumerable<ObterSetorDto>> ObterTodosOsSetores();
     }
 }

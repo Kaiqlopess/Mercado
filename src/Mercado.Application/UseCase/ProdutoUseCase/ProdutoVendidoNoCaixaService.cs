@@ -17,11 +17,11 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
             this._repositorioProduto = repositorioProduto;
         }
 
-        public ProdutoResponseDto Executar(long codigoDeBarras, int quantidade)
+        public async Task<ProdutoResponseDto> Executar(long codigoDeBarras, int quantidade)
         {
             try
             {
-                Produto produto = _repositorioProduto.BuscarPorCodigoDeBarras(codigoDeBarras);
+                Produto produto = await _repositorioProduto.BuscarPorCodigoDeBarras(codigoDeBarras);
 
                 if (produto == null)
                 {
@@ -35,7 +35,7 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 
                 produto.ProdutoVendido(quantidade);     
 
-                Produto produtoAtualizado = _repositorioProduto.Atualizar(produto);
+                Produto produtoAtualizado = await _repositorioProduto.Atualizar(produto);
 
                 ProdutoResponseDto produtoResponse = new ProdutoResponseDto() { Id = produtoAtualizado.Id, Nome = produtoAtualizado.Nome, Preco = produtoAtualizado.Preco };
 

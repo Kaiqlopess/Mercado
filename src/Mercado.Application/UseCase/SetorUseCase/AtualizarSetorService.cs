@@ -13,11 +13,11 @@ namespace Mercado.Application.UseCase.SetorUseCase
             this._repositorioSetor = repositorioSetor;
         }
 
-        public SetorResponseDto Executar(Guid id, AtualizarSetorDto dto)
+        public async Task<SetorResponseDto> Executar(Guid id, AtualizarSetorDto dto)
         {
             try
             {
-                Setor setor = _repositorioSetor.BuscarPorId(id);
+                Setor setor = await _repositorioSetor.BuscarPorId(id);
 
                 if (setor == null)
                 {
@@ -26,7 +26,7 @@ namespace Mercado.Application.UseCase.SetorUseCase
 
                 setor.Modificar(dto.Nome, dto.Descricao);
 
-                Setor setorAtualizado = _repositorioSetor.Atualizar(setor);
+                Setor setorAtualizado = await _repositorioSetor.Atualizar(setor);
 
                 SetorResponseDto response = new SetorResponseDto() { Id = setorAtualizado.Id, Nome = setorAtualizado.Nome, Descriçao = setorAtualizado.Descricao};
 

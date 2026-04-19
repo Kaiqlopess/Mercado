@@ -1,22 +1,17 @@
 ﻿using Mercado.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mercado.Domain.Interfaces.Repositorio
 {
     public interface IRepositorioCategoria
     {
-        Categoria Salvar(Categoria categoria);
-        Categoria Atualizar(Categoria categoria);
-        Categoria Deletar(Categoria categoria);
+        Task<Categoria> Salvar(Categoria categoria);
+        Task<Categoria> Atualizar(Categoria categoria);
+        Task<Categoria> Deletar(Categoria categoria);
 
-        Categoria BuscarPorId(Guid id);
+        Task<Categoria> BuscarPorId(Guid id);
 
-        IEnumerable<Categoria> BuscarPorSetorId(Guid id);
-        IEnumerable<Categoria> BuscarTodos();
+        Task<IEnumerable<Categoria>> BuscarPorSetorId(Guid id);
+        Task<IEnumerable<Categoria>> BuscarTodos();
 
     }
 }

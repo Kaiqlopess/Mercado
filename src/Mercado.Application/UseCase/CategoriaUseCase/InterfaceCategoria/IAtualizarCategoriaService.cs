@@ -6,6 +6,6 @@ namespace Mercado.Application.UseCase.CategoriaUseCase.InterfaceCategoria
 {
     public interface IAtualizarCategoriaService
     {
-        public CategoriaResponseDto Executar(Guid id, AtualizarCategoriaDto dto);
+        public Task<CategoriaResponseDto> Executar(Guid id, AtualizarCategoriaDto dto);
     }
 }

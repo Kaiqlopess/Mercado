@@ -22,11 +22,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CriandoCategoria(CriarCategoriaDto dto)
+        public async Task<IActionResult> CriandoCategoria(CriarCategoriaDto dto)
         {
             try
             {
-                CategoriaResponseDto response = _criarCategoriaService.Executar(dto);
+                CategoriaResponseDto response = await _criarCategoriaService.Executar(dto);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -37,11 +37,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Listar() 
+        public async Task<IActionResult> Listar() 
         {
             try
             {
-                return Ok(_obterCategoriaService.ObterTodasAsCategorias());
+                return Ok(await _obterCategoriaService.ObterTodasAsCategorias());
             }
             catch (Exception ex)
             {
@@ -51,11 +51,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeletandoCategoria(Guid id) 
+        public async Task<IActionResult> DeletandoCategoria(Guid id) 
         {
             try
             {
-                CategoriaResponseDto response = _deletarCategoriaService.Executar(id);
+                CategoriaResponseDto response = await _deletarCategoriaService.Executar(id);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -66,11 +66,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizandoCategoria(Guid id, [FromBody] AtualizarCategoriaDto dto)
+        public async Task<IActionResult> AtualizandoCategoria(Guid id, [FromBody] AtualizarCategoriaDto dto)
         {
             try
             {
-                CategoriaResponseDto response = _atualizarCategoriaService.Executar(id, dto);
+                CategoriaResponseDto response = await _atualizarCategoriaService.Executar(id, dto);
                 return Ok(response);
             }
             catch (Exception ex)

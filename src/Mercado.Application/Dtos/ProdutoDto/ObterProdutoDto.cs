@@ -11,5 +11,8 @@
         public long CodigoDeBarras { get; set; }
         public DateOnly Validade { get; set; }
         public DateOnly DataDeCriacao { get; set; }
+
+        public Guid CategoriaId {  get; set; }
+        public string CategoriaNome { get; set; }
     }
 }

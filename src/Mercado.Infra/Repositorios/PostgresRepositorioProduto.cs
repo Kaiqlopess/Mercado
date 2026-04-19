@@ -13,12 +13,12 @@ namespace Mercado.Infra.Repositorios
         {
             this._context = context;
         }
-        public Produto Atualizar(Produto produto)
+        public async Task<Produto> Atualizar(Produto produto)
         {
             try
             {
                 _context.Produtos.Update(produto);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                 return produto;
             }
@@ -28,11 +28,11 @@ namespace Mercado.Infra.Repositorios
             }
         }
 
-        public IEnumerable<Produto> BuscarPorCategoriaId(Guid id)
+        public async Task<IEnumerable<Produto>> BuscarPorCategoriaId(Guid id)
         {
             try
             {
-                return _context.Produtos.Where(p => p.CategoriaId == id).ToList();
+                return await _context.Produtos.Where(p => p.CategoriaId == id).Include(p => p.Categoria).ToListAsync();
             }
             catch (Exception ex)
             {
@@ -41,12 +41,12 @@ namespace Mercado.Infra.Repositorios
             
         }
 
-        public Produto BuscarPorCodigoDeBarras(long codigoDeBarras)
+        public async Task<Produto> BuscarPorCodigoDeBarras(long codigoDeBarras)
         {
 
             try
             {
-                return _context.Produtos.FirstOrDefault(p => p.CodigoDeBarras == codigoDeBarras);
+                return await _context.Produtos.Include(p => p.Categoria).FirstOrDefaultAsync(p => p.CodigoDeBarras == codigoDeBarras);
             }
             catch (Exception ex)
             {
@@ -55,38 +55,38 @@ namespace Mercado.Infra.Repositorios
             
         }
 
-        public Produto BuscarPorId(Guid id)
+        public async Task<Produto> BuscarPorId(Guid id)
         {
             try
             {
-                return _context.Produtos.Find(id);
+                return await _context.Produtos.Include(p => p.Categoria).FirstOrDefaultAsync(p => p.Id == id);
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao Retornar produto do banco de dados");
+                throw new Exception("Erro ao Retornar produto do banco de dados", ex);
             }
             
         }
 
-        public IEnumerable<Produto> BuscarTodos()
+        public async Task<IEnumerable<Produto>> BuscarTodos()
         {
             try
             {
-                return _context.Produtos.ToList();
+                return await _context.Produtos.Include(p => p.Categoria).ToListAsync();
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao Retornar lista do banco de dados");
+                throw new Exception("Erro ao Retornar lista do banco de dados", ex);
             }
             
         }
 
-        public Produto Deletar(Produto produto)
+        public async Task<Produto> Deletar(Produto produto)
         {
             try
             {
                 _context.Produtos.Remove(produto);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                 return produto;
             }
@@ -96,12 +96,12 @@ namespace Mercado.Infra.Repositorios
             }
         }
 
-        public Produto Salvar(Produto produto)
+        public async Task<Produto> Salvar(Produto produto)
         {
             try
             {
                 _context.Produtos.Add(produto);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                return produto;
             }

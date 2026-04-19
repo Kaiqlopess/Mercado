@@ -4,6 +4,6 @@ namespace Mercado.Application.UseCase.SetorUseCase.InterfaceSetor
 {
     public interface IAtualizarSetorService
     {
-        public SetorResponseDto Executar(Guid id, AtualizarSetorDto dto);
+        public Task<SetorResponseDto> Executar(Guid id, AtualizarSetorDto dto);
     }
 }

@@ -13,13 +13,13 @@ namespace Mercado.Application.UseCase.SetorUseCase
             this._repositorio = repositorio;           
         }
 
-        public SetorResponseDto Executar(CriarSetorDto dto)
+        public async Task<SetorResponseDto> Executar(CriarSetorDto dto)
         {
             try
             {
                 Setor setor = new Setor(dto.Nome, dto.Descricao);
 
-                Setor setorCriado = _repositorio.Salvar(setor);
+                Setor setorCriado = await _repositorio.Salvar(setor);
 
                 SetorResponseDto response = new SetorResponseDto() { Id = setorCriado.Id, Nome = setorCriado.Nome, Descriçao = setorCriado.Descricao};
 

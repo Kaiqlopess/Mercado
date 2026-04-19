@@ -11,6 +11,6 @@ namespace Mercado.Application.UseCase.SetorUseCase.InterfaceSetor
 {
     public interface IDeletarSetorService
     {
-        public SetorResponseDto Executar(Guid id);
+        public Task<SetorResponseDto> Executar(Guid id);
     }
 }

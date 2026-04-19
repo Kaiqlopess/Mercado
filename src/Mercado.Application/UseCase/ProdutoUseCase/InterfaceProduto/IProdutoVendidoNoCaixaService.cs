@@ -4,6 +4,6 @@ namespace Mercado.Application.UseCase.ProdutoUseCase.InterfaceProduto
 {
     public interface IProdutoVendidoNoCaixaService
     {
-        public ProdutoResponseDto Executar(long codigoDeBarras, int quantidade);
+        public Task<ProdutoResponseDto> Executar(long codigoDeBarras, int quantidade);
     }
 }

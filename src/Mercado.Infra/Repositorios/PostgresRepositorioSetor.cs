@@ -13,12 +13,12 @@ namespace Mercado.Infra.Repositorios
         {
             this._context = context;
         }
-        public Setor Atualizar(Setor setor)
+        public async Task<Setor> Atualizar(Setor setor)
         {
             try
             {
                 _context.Setores.Update(setor);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                 return setor;
             }
@@ -29,11 +29,11 @@ namespace Mercado.Infra.Repositorios
             
         }
 
-        public Setor BuscarPorId(Guid id)
+        public async Task<Setor> BuscarPorId(Guid id)
         {
             try
             {
-                return _context.Setores.Find(id);
+                return await _context.Setores.FindAsync(id);
             }
             catch (Exception ex) 
             {
@@ -42,11 +42,11 @@ namespace Mercado.Infra.Repositorios
             
         }
 
-        public IEnumerable<Setor> BuscarTodos()
+        public async Task<IEnumerable<Setor>> BuscarTodos()
         {
             try
             {
-                return _context.Setores.ToList();
+                return await _context.Setores.ToListAsync();
             }
             catch (Exception ex) 
             {
@@ -55,12 +55,12 @@ namespace Mercado.Infra.Repositorios
             
         }
 
-        public Setor Deletar(Setor setor)
+        public async Task<Setor> Deletar(Setor setor)
         {
             try
             {
                 _context.Setores.Remove(setor);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                 return setor;
             }
@@ -71,12 +71,12 @@ namespace Mercado.Infra.Repositorios
            
         }
 
-        public Setor Salvar(Setor setor)
+        public async Task<Setor> Salvar(Setor setor)
         {
             try
             {
                 _context.Setores.Add(setor);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                 return setor;
             }

@@ -4,9 +4,9 @@ namespace Mercado.Application.UseCase.ProdutoUseCase.InterfaceProduto
 {
     public interface IObterProdutoService
     {
-        public IEnumerable<ObterProdutoDto> ObterTodosOsProdutos();
-        public IEnumerable<ObterProdutoDto> ObterProdutosPorCategoriaId(Guid id);
-        public ObterProdutoDto ObterProdutosPorId(Guid id);
-        public ObterProdutoDto ObterProdutosPorCodigoDeBarras(long codigoDeBarras);
+        public Task<IEnumerable<ObterProdutoDto>> ObterTodosOsProdutos();
+        public Task<IEnumerable<ObterProdutoDto>> ObterProdutosPorCategoriaId(Guid id);
+        public Task<ObterProdutoDto> ObterProdutosPorId(Guid id);
+        public Task<ObterProdutoDto> ObterProdutosPorCodigoDeBarras(long codigoDeBarras);
     }
 }

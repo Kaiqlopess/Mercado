@@ -13,11 +13,11 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
             this._repositorioProduto = repositorioProduto;
         }
 
-        public IEnumerable<ObterProdutoDto> ObterTodosOsProdutos()
+        public async Task<IEnumerable<ObterProdutoDto>> ObterTodosOsProdutos()
         {
             try
             {
-                IEnumerable<Produto> produtos = _repositorioProduto.BuscarTodos();
+                IEnumerable<Produto> produtos = await _repositorioProduto.BuscarTodos();
 
                 var dtos = produtos.Select(p => new ObterProdutoDto
                 {
@@ -30,7 +30,8 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
                     Validade = p.Validade,
                     CodigoDeBarras = p.CodigoDeBarras,
                     DataDeCriacao = p.DataDeCriacao,
-
+                    CategoriaId = p.CategoriaId,
+                    CategoriaNome = p.Categoria.Nome
                 }).ToList();
 
                 return dtos;
@@ -43,11 +44,11 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
             
         }
 
-        public IEnumerable<ObterProdutoDto> ObterProdutosPorCategoriaId(Guid id)
+        public async Task<IEnumerable<ObterProdutoDto>> ObterProdutosPorCategoriaId(Guid id)
         {
             try
             {
-                IEnumerable<Produto> produtos = _repositorioProduto.BuscarPorCategoriaId(id);
+                IEnumerable<Produto> produtos = await _repositorioProduto.BuscarPorCategoriaId(id);
 
                 var dtos = produtos.Select(p => new ObterProdutoDto
                 {
@@ -60,7 +61,8 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
                     Validade = p.Validade,
                     CodigoDeBarras = p.CodigoDeBarras,
                     DataDeCriacao = p.DataDeCriacao,
-
+                    CategoriaId = p.CategoriaId,
+                    CategoriaNome = p.Categoria.Nome
                 }).ToList();
 
                 return dtos;
@@ -72,11 +74,11 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
             
         }
 
-        public ObterProdutoDto ObterProdutosPorId(Guid id)
+        public async Task<ObterProdutoDto> ObterProdutosPorId(Guid id)
         {
             try
             {
-                Produto produto = _repositorioProduto.BuscarPorId(id);
+                Produto produto = await _repositorioProduto.BuscarPorId(id);
 
                 if (produto == null)
                 {
@@ -93,7 +95,9 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
                     Descricao = produto.Descricao,
                     Validade = produto.Validade,
                     CodigoDeBarras = produto.CodigoDeBarras,
-                    DataDeCriacao = produto.DataDeCriacao
+                    DataDeCriacao = produto.DataDeCriacao,
+                    CategoriaId = produto.CategoriaId,
+                    CategoriaNome = produto.Categoria.Nome
                 };
 
                 return dto;
@@ -105,11 +109,11 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
             
         }
 
-        public ObterProdutoDto ObterProdutosPorCodigoDeBarras(long codigoDeBarras)
+        public async Task<ObterProdutoDto> ObterProdutosPorCodigoDeBarras(long codigoDeBarras)
         {
             try
             {
-                Produto produto = _repositorioProduto.BuscarPorCodigoDeBarras(codigoDeBarras);
+                Produto produto = await _repositorioProduto.BuscarPorCodigoDeBarras(codigoDeBarras);
 
                 if (produto == null)
                 {
@@ -126,7 +130,9 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
                     Descricao = produto.Descricao,
                     Validade = produto.Validade,
                     CodigoDeBarras = produto.CodigoDeBarras,
-                    DataDeCriacao = produto.DataDeCriacao
+                    DataDeCriacao = produto.DataDeCriacao,
+                    CategoriaId = produto.CategoriaId,
+                    CategoriaNome = produto.Categoria.Nome
                 };
 
                 return dto;

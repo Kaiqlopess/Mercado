@@ -13,18 +13,18 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
             this._repositorioProduto = repositorioProduto;
         }
 
-        public ProdutoResponseDto Executar(Guid id)
+        public async Task<ProdutoResponseDto> Executar(Guid id)
         {
             try
             {
-                Produto produto = _repositorioProduto.BuscarPorId(id);
+                Produto produto = await _repositorioProduto.BuscarPorId(id);
 
                 if (produto == null)
                 {
                     throw new Exception("Produto nao encontrado");
                 }
 
-                Produto produtoDeletado = _repositorioProduto.Deletar(produto);
+                Produto produtoDeletado = await _repositorioProduto.Deletar(produto);
 
                 ProdutoResponseDto reponse = new ProdutoResponseDto() { Id = produtoDeletado.Id, Nome = produtoDeletado.Nome, Preco = produtoDeletado.Preco};
 

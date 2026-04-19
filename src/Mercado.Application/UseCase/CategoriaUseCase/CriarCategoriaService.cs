@@ -16,11 +16,11 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
             this._repositorioSetor = repositorioSetor;
         }
 
-        public CategoriaResponseDto Executar(CriarCategoriaDto dto)
+        public async Task<CategoriaResponseDto> Executar(CriarCategoriaDto dto)
         {
             try
             {
-                Setor setor = _repositorioSetor.BuscarPorId(dto.SetorId);
+                Setor setor = await _repositorioSetor.BuscarPorId(dto.SetorId);
 
                 if (setor == null)
                 {
@@ -29,7 +29,7 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
 
                 Categoria categoria = new Categoria(dto.Nome, dto.Descricao, dto.SetorId);
 
-                Categoria categoriaCriada = _repositoroCategoria.Salvar(categoria);
+                Categoria categoriaCriada = await _repositoroCategoria.Salvar(categoria);
 
                 CategoriaResponseDto response = new CategoriaResponseDto(){ Id = categoriaCriada.Id, Nome = categoriaCriada.Nome};
 

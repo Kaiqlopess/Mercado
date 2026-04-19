@@ -4,7 +4,7 @@ namespace Mercado.Application.UseCase.CategoriaUseCase.InterfaceCategoria
 {
     public interface ICriarCategoriaService
     {
-        public CategoriaResponseDto Executar(CriarCategoriaDto dto);
+        public Task<CategoriaResponseDto> Executar(CriarCategoriaDto dto);
     }
 }
 

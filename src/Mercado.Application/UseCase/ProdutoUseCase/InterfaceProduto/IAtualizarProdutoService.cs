@@ -6,6 +6,6 @@ namespace Mercado.Application.UseCase.ProdutoUseCase.InterfaceProduto
 {
     public interface IAtualizarProdutoService
     {
-        ProdutoResponseDto Executar(Guid id, AtualizarProdutoDto dto);
+        Task<ProdutoResponseDto> Executar(Guid id, AtualizarProdutoDto dto);
     }
 }

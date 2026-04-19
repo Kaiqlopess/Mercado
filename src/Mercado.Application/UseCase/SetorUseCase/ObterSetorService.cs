@@ -13,11 +13,11 @@ namespace Mercado.Application.UseCase.SetorUseCase
             this._repositorioSetor = repositorioSetor;
         }
 
-        public ObterSetorDto ObterTodosOsSetoresPorId(Guid id)
+        public async Task<ObterSetorDto> ObterTodosOsSetoresPorId(Guid id)
         {
             try
             {
-                Setor setor = _repositorioSetor.BuscarPorId(id);
+                Setor setor = await _repositorioSetor.BuscarPorId(id);
 
                 if (setor == null)
                 {
@@ -40,11 +40,11 @@ namespace Mercado.Application.UseCase.SetorUseCase
             
         }
 
-        public IEnumerable<ObterSetorDto> ObterTodosOsSetores()
+        public async Task<IEnumerable<ObterSetorDto>> ObterTodosOsSetores()
         {
             try 
             {
-                IEnumerable<Setor> setor = _repositorioSetor.BuscarTodos();
+                IEnumerable<Setor> setor = await _repositorioSetor.BuscarTodos();
 
                 var dtos = setor.Select(s => new ObterSetorDto
                 {

@@ -13,11 +13,11 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
             this._repositorioCategoria = repositorioCategoria;
         }
 
-        public CategoriaResponseDto Executar(Guid id, AtualizarCategoriaDto dto)
+        public async Task<CategoriaResponseDto> Executar(Guid id, AtualizarCategoriaDto dto)
         {
             try
             {
-                Categoria categoria = _repositorioCategoria.BuscarPorId(id);
+                Categoria categoria = await _repositorioCategoria.BuscarPorId(id);
 
                 if (categoria == null)
                 {
@@ -26,7 +26,7 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
 
                 categoria.Modificar(dto.Nome, dto.Descricao);
 
-                Categoria categoriaAtualizada = _repositorioCategoria.Atualizar(categoria);
+                Categoria categoriaAtualizada = await _repositorioCategoria.Atualizar(categoria);
 
                 CategoriaResponseDto response = new CategoriaResponseDto() { Id = categoriaAtualizada.Id, Nome = categoriaAtualizada.Nome};
 

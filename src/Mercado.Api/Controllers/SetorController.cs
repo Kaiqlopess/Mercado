@@ -21,11 +21,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CriarSetor(CriarSetorDto dto)
+        public async Task<IActionResult> CriarSetor(CriarSetorDto dto)
         {
             try
             {
-                SetorResponseDto response = _setorService.Executar(dto);
+                SetorResponseDto response = await _setorService.Executar(dto);
                 return Ok(response);
             }
             catch (Exception ex) 
@@ -35,11 +35,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult ObterSetores()
+        public async Task<IActionResult> ObterSetores()
         {
             try
             {
-                return Ok(_obterService.ObterTodosOsSetores());
+                return Ok(await _obterService.ObterTodosOsSetores());
             }
             catch (Exception ex) 
             {
@@ -48,11 +48,11 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeletarSetor(Guid id)
+        public async Task<IActionResult> DeletarSetor(Guid id)
         {
             try
             {
-                SetorResponseDto response = _deleteService.Executar(id);
+                SetorResponseDto response = await _deleteService.Executar(id);
                 return Ok(response);
             }
             catch (Exception ex) 
@@ -63,12 +63,12 @@ namespace Mercado.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizarSetor(Guid id, [FromBody] AtualizarSetorDto dto)
+        public async Task<IActionResult> AtualizarSetor(Guid id, [FromBody] AtualizarSetorDto dto)
         {
 
             try
             {
-                SetorResponseDto response = _atualizarSetor.Executar(id, dto);
+                SetorResponseDto response = await _atualizarSetor.Executar(id, dto);
                 return Ok(response);
             }
             catch(Exception ex)

@@ -4,6 +4,6 @@ namespace Mercado.Application.UseCase.SetorUseCase.InterfaceSetor
 {
     public interface ICriarSetorService
     {
-        public SetorResponseDto Executar(CriarSetorDto dto);
+        public Task<SetorResponseDto> Executar(CriarSetorDto dto);
     }
 }

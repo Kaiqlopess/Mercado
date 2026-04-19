@@ -15,25 +15,25 @@ namespace Mercado.Application.UseCase.SetorUseCase
             this._repositorioCategoria = repositorioCategoria;
         }
 
-        public SetorResponseDto Executar(Guid id)
+        public async Task<SetorResponseDto> Executar(Guid id)
         {
             try
             {
-                Setor setor = _repositorioSetor.BuscarPorId(id);
+                Setor setor = await _repositorioSetor.BuscarPorId(id);
 
                 if (setor == null)
                 {
                     throw new Exception("Setor nao encontrado");
                 }
 
-                IEnumerable<Categoria> categorias = _repositorioCategoria.BuscarPorSetorId(id);
+                IEnumerable<Categoria> categorias = await _repositorioCategoria.BuscarPorSetorId(id);
 
                 if (categorias.Any())
                 {
                     throw new Exception("há categorias com esse Setor!!");
                 }
 
-                Setor setorDeletado = _repositorioSetor.Deletar(setor);
+                Setor setorDeletado = await _repositorioSetor.Deletar(setor);
 
                 SetorResponseDto response = new SetorResponseDto() { Id = setorDeletado.Id, Nome = setorDeletado.Nome, Descriçao = setorDeletado.Descricao};
 
@@ -41,9 +41,8 @@ namespace Mercado.Application.UseCase.SetorUseCase
             }
             catch (Exception ex) 
             {
-                throw new Exception("Erro ao realizar a operaçao de Deletar", ex);
+                throw new Exception(ex.Message);
             }
-            
         }
     }
 }

@@ -14,12 +14,11 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
             this._repositorioProduto = repositorioProduto;
         }
 
-        public ProdutoResponseDto Executar(Guid id, AtualizarProdutoDto dto)
+        public async Task<ProdutoResponseDto> Executar(Guid id, AtualizarProdutoDto dto)
         {
-
             try
             {
-                Produto produto = _repositorioProduto.BuscarPorId(id);
+                Produto produto = await _repositorioProduto.BuscarPorId(id);
 
                 if (produto == null)
                 {
@@ -28,7 +27,7 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
 
                 produto.ModificarParaAtualizar(dto.Preco, dto.Quantidade);
 
-                Produto ProdutoAtualizado = _repositorioProduto.Atualizar(produto);
+                Produto ProdutoAtualizado = await _repositorioProduto.Atualizar(produto);
 
                 ProdutoResponseDto response = new ProdutoResponseDto() { Id = ProdutoAtualizado.Id, Nome = ProdutoAtualizado.Nome, Preco = ProdutoAtualizado.Preco};
 

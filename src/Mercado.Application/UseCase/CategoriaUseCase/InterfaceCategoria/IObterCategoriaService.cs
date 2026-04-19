@@ -6,11 +6,11 @@ namespace Mercado.Application.UseCase.CategoriaUseCase.InterfaceCategoria
 {
     public interface IObterCategoriaService
     {
-        public ObterCategoriaDto ObterCategoriasPorId(Guid id);
+        public Task<ObterCategoriaDto> ObterCategoriasPorId(Guid id);
 
-        public IEnumerable<ObterCategoriaDto> ObterTodasAsCategorias();
+        public Task<IEnumerable<ObterCategoriaDto>> ObterTodasAsCategorias();
 
-        public IEnumerable<ObterCategoriaDto> ObterTodasAsCategoriasPorSetorId(Guid id);
+        public Task<IEnumerable<ObterCategoriaDto>> ObterTodasAsCategoriasPorSetorId(Guid id);
 
 
     }

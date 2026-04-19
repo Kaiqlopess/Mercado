@@ -15,25 +15,25 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
             this._repositorioProduto = repositorioProduto;
         }
 
-        public CategoriaResponseDto Executar(Guid id)
+        public async Task<CategoriaResponseDto> Executar(Guid id)
         {
             try
             {
-                Categoria categoria = _repositorioCategoria.BuscarPorId(id);
+                Categoria categoria = await _repositorioCategoria.BuscarPorId(id);
 
                 if (categoria == null)
                 {
                     throw new Exception("Categoria nao existe");
                 }
 
-                IEnumerable<Produto> produtos = _repositorioProduto.BuscarPorCategoriaId(id);
+                IEnumerable<Produto> produtos = await _repositorioProduto.BuscarPorCategoriaId(id);
 
                 if (produtos.Any())
                 {
                     throw new Exception("há produtos com essa categoria!!");
                 }
 
-                Categoria categoriaDeletado = _repositorioCategoria.Deletar(categoria);
+                Categoria categoriaDeletado = await _repositorioCategoria.Deletar(categoria);
 
                 CategoriaResponseDto response = new CategoriaResponseDto() { Id = categoriaDeletado.Id ,Nome = categoriaDeletado.Nome};
 
@@ -41,7 +41,7 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
             }
             catch (Exception ex) 
             {
-                throw new Exception("Erro ao realizar a operaçao de deletar", ex);
+                throw new Exception(ex.Message);
             }
            
         }

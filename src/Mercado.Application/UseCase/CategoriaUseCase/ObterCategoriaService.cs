@@ -13,11 +13,11 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
             this._repositorioCategoria = repositorioCategoria;
         }
 
-        public ObterCategoriaDto ObterCategoriasPorId(Guid id)
+        public async Task<ObterCategoriaDto> ObterCategoriasPorId(Guid id)
         {
             try
             {
-                Categoria categoria = _repositorioCategoria.BuscarPorId(id);
+                Categoria categoria = await _repositorioCategoria.BuscarPorId(id);
 
                 if (categoria == null)
                 {
@@ -28,6 +28,9 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
                 {
                     Id = categoria.Id,
                     Nome = categoria.Nome,
+                    Descricao = categoria.Descricao,
+                    SetorId = categoria.SetorId,
+                    SetorNome = categoria.Setor.Nome
                 };
 
                 return dto;
@@ -39,16 +42,19 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
             
         }
 
-        public IEnumerable<ObterCategoriaDto> ObterTodasAsCategorias()
+        public async Task<IEnumerable<ObterCategoriaDto>> ObterTodasAsCategorias()
         {
             try
             {
-                IEnumerable<Categoria> categorias = _repositorioCategoria.BuscarTodos();
+                IEnumerable<Categoria> categorias = await _repositorioCategoria.BuscarTodos();
 
                 IEnumerable<ObterCategoriaDto> dtos = categorias.Select(c => new ObterCategoriaDto
                 {
                     Id = c.Id,
                     Nome = c.Nome,
+                    Descricao = c.Descricao,
+                    SetorId = c.SetorId,
+                    SetorNome = c.Setor.Nome
                 });
 
                 return dtos;
@@ -61,11 +67,11 @@ namespace Mercado.Application.UseCase.CategoriaUseCase
 
         }
 
-        public IEnumerable<ObterCategoriaDto> ObterTodasAsCategoriasPorSetorId(Guid id)
+        public async Task<IEnumerable<ObterCategoriaDto>> ObterTodasAsCategoriasPorSetorId(Guid id)
         {
             try
             {
-                IEnumerable<Categoria> categorias = _repositorioCategoria.BuscarPorSetorId(id);
+                IEnumerable<Categoria> categorias = await _repositorioCategoria.BuscarPorSetorId(id);
 
                 IEnumerable<ObterCategoriaDto> dtos = categorias.Select(c => new ObterCategoriaDto
                 {
