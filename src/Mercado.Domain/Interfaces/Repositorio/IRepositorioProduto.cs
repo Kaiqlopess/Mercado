@@ -15,6 +15,8 @@ namespace Mercado.Domain.Interfaces.Repositorio
 
         Task<Produto> BuscarPorId(Guid id);
         Task<Produto> BuscarPorCodigoDeBarras(long codigoDeBarras);
+        Task<Decimal> CalcuarValorTotalEstoque();
+        Task<IEnumerable<Produto>> ObterProdutosComEstoqueBaixo();
 
         Task<IEnumerable<Produto>> BuscarPorCategoriaId(Guid id);
         Task<IEnumerable<Produto>> BuscarTodos();

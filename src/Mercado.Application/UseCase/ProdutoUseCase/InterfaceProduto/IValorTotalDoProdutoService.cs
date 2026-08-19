@@ -2,5 +2,6 @@
 {
     public interface IValorTotalDoProdutoService
     {
+        Task<Decimal> Executar();
     }
 }

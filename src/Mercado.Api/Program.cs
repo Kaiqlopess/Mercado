@@ -38,6 +38,8 @@ builder.Services.AddScoped<IAtualizarCategoriaService, AtualizarCategoriaService
 builder.Services.AddScoped<IAtualizarSetorService, AtualizarSetorService>();
 
 builder.Services.AddScoped<IProdutoVendidoNoCaixaService, ProdutoVendidoNoCaixaService>();
+builder.Services.AddScoped<IValorTotalDoProdutoService, ValorTotalDoProdutoService>();
+builder.Services.AddScoped<IObterProdutosFaltanteService, ObterProdutosFaltanteService>();
 
 
 builder.Services.AddControllers();

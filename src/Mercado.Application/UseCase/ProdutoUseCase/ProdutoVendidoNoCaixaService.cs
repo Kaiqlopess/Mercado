@@ -45,7 +45,6 @@ namespace Mercado.Application.UseCase.ProdutoUseCase
             {
                 throw new Exception("Erro ao execuar a operaçao de vendas no caixa", ex);
             }
-            ;
         }
 
 

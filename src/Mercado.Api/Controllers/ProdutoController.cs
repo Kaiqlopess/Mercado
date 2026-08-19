@@ -12,15 +12,21 @@ namespace Mercado.Api.Controllers
         private readonly IObterProdutoService _obterService;
         private readonly IDeletarProdutoService _deletarService;
         private readonly IAtualizarProdutoService _atualizarService;
-        private readonly IProdutoVendidoNoCaixaService _produtoVendidoNoCaixa;
-        public ProdutoController(ICriarProdutoService criarService, IObterProdutoService obterService, IDeletarProdutoService deletarService, IAtualizarProdutoService atualizarService, IProdutoVendidoNoCaixaService produtoVendidoNoCaixa) 
+        private readonly IProdutoVendidoNoCaixaService _produtoVendidoNoCaixaService;
+        private readonly IObterProdutosFaltanteService _obterProdutosFaltanteService;
+        private readonly IValorTotalDoProdutoService _valorTotalDoProdutoService;
+        public ProdutoController(ICriarProdutoService criarService, IObterProdutoService obterService, IDeletarProdutoService deletarService,
+                                 IAtualizarProdutoService atualizarService, IProdutoVendidoNoCaixaService produtoVendidoNoCaixaService,
+                                 IObterProdutosFaltanteService obterProdutosFaltanteService, IValorTotalDoProdutoService valorTotalDoProdutoService) 
         {
             this._criarService = criarService;
             this._obterService = obterService;
             this._deletarService = deletarService;
             this._atualizarService = atualizarService;
-            this._produtoVendidoNoCaixa = produtoVendidoNoCaixa;
-        }
+            this._produtoVendidoNoCaixaService = produtoVendidoNoCaixaService;
+            this._obterProdutosFaltanteService = obterProdutosFaltanteService;
+            this._valorTotalDoProdutoService = valorTotalDoProdutoService;
+        }   
 
         [HttpPost]
         public async Task<IActionResult> CriarProduto([FromBody] CriarProdutoDto dto) 
@@ -99,7 +105,7 @@ namespace Mercado.Api.Controllers
         {
             try
             {
-                ProdutoResponseDto response = await _produtoVendidoNoCaixa.Executar(dto.CodigoDeBarras, dto.Quantidade);
+                ProdutoResponseDto response = await _produtoVendidoNoCaixaService.Executar(dto.CodigoDeBarras, dto.Quantidade);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -107,6 +113,34 @@ namespace Mercado.Api.Controllers
                 return BadRequest(new { mensagem = ex.Message });
             }
            
+        }
+
+        [HttpGet("estoque/valor-total")]
+        public async Task<IActionResult> ValorTotalDoProduto()
+        {
+            try
+            {
+                decimal valorTotal = await _valorTotalDoProdutoService.Executar();
+                return Ok(new { valorTotal });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensagem = ex.Message });
+            }
+        }
+
+        [HttpGet("estoque/faltantes")]
+        public async Task<IActionResult> ObterProdutosFaltantes()
+        {
+            try
+            {
+                IEnumerable<ProdutoFaltanteDto> produtosFaltantes = await _obterProdutosFaltanteService.Executar();
+                return Ok(produtosFaltantes);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensagem = ex.Message });
+            }
         }
 
 

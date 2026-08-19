@@ -81,6 +81,17 @@ namespace Mercado.Infra.Repositorios
             
         }
 
+        public async Task<decimal> CalcuarValorTotalEstoque()
+        {
+            try
+            {
+                return await _context.Produtos.SumAsync(p => p.Preco * p.Quantidade);
+            }catch (Exception ex)
+            {
+                throw new Exception("Erro ao retornar o valor total do estoque!", ex);
+            } 
+        }
+
         public async Task<Produto> Deletar(Produto produto)
         {
             try
@@ -93,6 +104,18 @@ namespace Mercado.Infra.Repositorios
             catch (DbUpdateException ex) 
             {
                 throw new Exception("Erro ao Deletar no banco de dados", ex);
+            }
+        }
+
+        public async Task<IEnumerable<Produto>> ObterProdutosComEstoqueBaixo()
+        {
+            try
+            {
+                return await _context.Produtos.Where(p => p.Quantidade <= 2).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao buscar produtos com estoque baixo", ex);
             }
         }
 
