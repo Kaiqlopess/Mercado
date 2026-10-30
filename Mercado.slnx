@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
+    <File Path="Dockerfile" />
     <Project Path="src/Mercado.Api/Mercado.Api.csproj" />
     <Project Path="src/Mercado.Application/Mercado.Application.csproj" />
     <Project Path="src/Mercado.Domain/Mercado.Domain.csproj" />
